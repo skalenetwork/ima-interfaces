@@ -34,9 +34,6 @@ jobs:
 
     - name: Install project
       run: yarn
-    
-    - name: Build contracts
-      run: yarn compile
 
     - name: Determine version
       run: |

@@ -8,6 +8,7 @@
   "license": "AGPL-3.0",
   "scripts": {
     "compile": "npx hardhat clean && npx hardhat compile",
+    "prepare": "yarn compile && yarn hooks",
     "hooks": "git config core.hooksPath .githooks || true",
     "no-hooks": "git config core.hooksPath .git/hooks",
     "lint": "npx solhint \"contracts/**/*.sol\"",
