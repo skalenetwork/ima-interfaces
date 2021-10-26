@@ -27,4 +27,4 @@ cp LICENSE contracts
 cp README.md contracts
 cp package.json contracts
 
-yarn publish contracts --access public --new-version $VERSION --verbose --no-git-tag-version $TAG
+yarn publish contracts --access public --new-version $VERSION --verbose --no-git-tag-version $TAG --ignore-scripts
