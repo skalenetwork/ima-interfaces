@@ -41,6 +41,7 @@ jobs:
     - name: Determine version
       run: |
         export BRANCH=${GITHUB_REF##*/}
+        echo "BRANCH=$BRANCH" >> $GITHUB_ENV
         echo "Branch $BRANCH"
         export VERSION=$(bash ./scripts/calculate_version.sh)
         echo "VERSION=$VERSION" >> $GITHUB_ENV
@@ -51,7 +52,7 @@ jobs:
     - name: Publish NPM package
       run: ./scripts/publish_package.sh
       env:
-        BRANCH: ${GITHUB_REF##*/}
+        BRANCH: ${{ env.BRANCH }}
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     
     - name: Create Release

@@ -15,6 +15,8 @@ cd "$(dirname "$0")/.."
 BRANCH=$(echo $BRANCH | tr [:upper:] [:lower:] | tr -d [:space:])
 VERSION=$(BRANCH=$BRANCH ./scripts/calculate_version.sh)
 
+echo "Using $VERSION as a new version"
+
 TAG=""
 if ! [[ $BRANCH == 'stable' ]]
 then
