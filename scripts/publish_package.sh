@@ -25,6 +25,5 @@ fi
 
 cp LICENSE contracts
 cp README.md contracts
-cd contracts
 
 yarn publish contracts --access public --new-version $VERSION --verbose --no-git-tag-version $TAG
