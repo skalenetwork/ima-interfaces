@@ -40,4 +40,4 @@ jobs:
       run: slither --version
 
     - name: Lint
-      run: yarn fullcheck
+      run: yarn fullCheck
