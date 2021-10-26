@@ -51,7 +51,7 @@ jobs:
     - name: Publish NPM package
       run: ./scripts/publish_package.sh
       env:
-        BRANCH: ${{ env.BRANCH }}
+        BRANCH: ${GITHUB_REF##*/}
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     
     - name: Create Release
