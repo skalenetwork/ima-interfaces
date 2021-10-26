@@ -5,11 +5,7 @@
   "main": "index.js",
   "repository": "git@github.com:skalenetwork/ima-interfaces.git",
   "author": "Dmytro Stebaiev <dmytro@skalelabs.com>",
-  "license": "AGPL-3.0",
-  "files": [
-    "/contracts/**/*.sol",
-    "/artifacts/contracts/*.json"
-  ],
+  "license": "AGPL-3.0",  
   "scripts": {
     "compile": "npx hardhat clean && npx hardhat compile",
     "hooks": "git config core.hooksPath .githooks || true",

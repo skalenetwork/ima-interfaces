@@ -4,6 +4,8 @@ on:
     types: [closed]
     branches:
       - stable
+      - beta
+      - develop      
 
 jobs:
   build:
@@ -36,12 +38,20 @@ jobs:
     - name: Build contracts
       run: yarn compile
 
-    - name: Set package version
-      run: echo "VERSION=$(bash ./scripts/get_version.sh)" >> $GITHUB_ENV
+    - name: Determine version
+      run: |
+        export BRANCH=${GITHUB_REF##*/}
+        echo "Branch $BRANCH"
+        export VERSION=$(bash ./scripts/calculate_version.sh)
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+        echo "Version $VERSION"
+        ( test $BRANCH = "stable" && export PRERELEASE=false ) || export PRERELEASE=true
+        echo "PRERELEASE=$PRERELEASE" >> $GITHUB_ENV
 
     - name: Publish NPM package
-      run: yarn publish contracts --access public --new-version $VERSION --verbose --no-git-tag-version
+      run: ./scripts/publish_package.sh
       env:
+        BRANCH: ${{ env.VERSION }}
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     
     - name: Create Release
@@ -52,3 +62,4 @@ jobs:
       with:
         tag_name: ${{ env.VERSION }}
         release_name: ${{ env.VERSION }}
+        prerelease: ${{ env.PRERELEASE }}
