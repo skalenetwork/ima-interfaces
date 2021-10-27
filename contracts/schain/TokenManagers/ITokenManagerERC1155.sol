@@ -21,9 +21,10 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
-import "../tokens/IERC1155OnChain.sol";
+import "../ITokenManager.sol";
 
-interface ITokenManagerERC1155 {
+
+interface ITokenManagerERC1155 is ITokenManager {
     function exitToMainERC1155(
         address contractOnMainnet,
         uint256 id,
@@ -48,6 +49,6 @@ interface ITokenManagerERC1155 {
     ) external;
     function addERC1155TokenByOwner(
         address erc1155OnMainnet,
-        IERC1155OnChain erc1155OnSchain
+        address erc1155OnSchain
     ) external;
 }

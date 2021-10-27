@@ -21,9 +21,9 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
-import "../tokens/IERC20OnChain.sol";
+import "../ITokenManager.sol";
 
-interface ITokenManagerERC20 {
+interface ITokenManagerERC20 is ITokenManager {
     function exitToMainERC20(
         address contractOnMainnet,
         uint256 amount
@@ -35,6 +35,6 @@ interface ITokenManagerERC20 {
     ) external;
     function addERC20TokenByOwner(
         address erc20OnMainnet,
-        IERC20OnChain erc20OnSchain
-     ) external;
+        address erc20OnSchain
+    ) external;
 }
