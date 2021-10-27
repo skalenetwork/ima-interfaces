@@ -21,9 +21,10 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
+import "../ITokenManager.sol";
 import "../tokens/IEthErc20.sol";
 
-interface ITokenManagerEth {
+interface ITokenManagerEth is ITokenManager {
     function setEthErc20Address(IEthErc20 newEthErc20Address) external;
     function exitToMain(uint256 amount) external;
     function transferToSchain(string memory targetSchainName, uint256 amount) external;

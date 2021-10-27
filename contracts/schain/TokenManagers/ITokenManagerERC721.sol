@@ -21,9 +21,9 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
-import "../tokens/IERC721OnChain.sol";
+import "../ITokenManager.sol";
 
-interface ITokenManagerERC721 {
+interface ITokenManagerERC721 is ITokenManager {
     function exitToMainERC721(address contractOnMainnet, uint256 tokenId) external;
     function transferToSchainERC721(
         string calldata targetSchainName,
@@ -32,6 +32,6 @@ interface ITokenManagerERC721 {
     ) external;
     function addERC721TokenByOwner(
         address erc721OnMainnet,
-        IERC721OnChain erc721OnSchain
+        address erc721OnSchain
     ) external;
 }

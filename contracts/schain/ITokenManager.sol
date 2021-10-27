@@ -21,6 +21,12 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
-interface ITokenManager {
+import "../IMessageReceiver.sol";
+
+
+interface ITokenManager is IMessageReceiver {
     function enableAutomaticDeploy() external;
+    function addTokenManager(string calldata schainName, address newTokenManager) external;
+    function removeTokenManager(string calldata schainName) external;
+    function hasTokenManager(string calldata schainName) external view returns (bool);
 }

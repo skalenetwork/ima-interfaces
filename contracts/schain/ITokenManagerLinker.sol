@@ -21,9 +21,11 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
+import "../IMessageReceiver.sol";
 import "./ITokenManager.sol";
 
-interface ITokenManagerLinker {
+
+interface ITokenManagerLinker is IMessageReceiver {
     function registerTokenManager(ITokenManager newTokenManager) external;
     function removeTokenManager(ITokenManager tokenManagerAddress) external;
     function connectSchain(
