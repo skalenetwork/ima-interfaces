@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 /**
- *   ICommunityPool.sol - SKALE Interchain Messaging Agent
+ *   IERC721ReferenceMintAndMetadataSchain.sol - SKALE Interchain Messaging Agent
  *   Copyright (C) 2021-Present SKALE Labs
  *   @author Dmytro Stebaiev
  *
@@ -21,13 +21,15 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
-import "./ITwin.sol";
 
-
-interface ICommunityPool is ITwin {
-    function refundGasByUser(bytes32 schainHash, address payable node, address user, uint gas) external;
-    function rechargeUserWallet(string calldata schainName, address user) external payable;
-    function withdrawFunds(string calldata schainName, uint amount) external;
-    function setMinTransactionGas(uint newMinTransactionGas) external;
-    function getBalance(address user, string calldata schainName) external view returns (uint);
+interface IERC721ReferenceMintAndMetadataSchain {
+    function sendTokenToMainnet(address receiver, uint256 tokenId) external;
+    function encodeParams(
+        address receiver,
+        uint256 tokenId,
+        string memory tokenURI
+    )
+        external
+        pure
+        returns (bytes memory data);
 }
