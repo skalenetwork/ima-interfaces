@@ -24,11 +24,17 @@ pragma solidity >=0.6.10 <0.9.0;
 
 interface IFieldOperations {
 
+    /**
+     * @dev Structure that represents the field element { a + ib }
+     */
     struct Fp2Point {
         uint a;
         uint b;
     }
 
+    /**
+     * @dev Structure that represents an element of G2
+     */
     struct G2Point {
         Fp2Point x;
         Fp2Point y;

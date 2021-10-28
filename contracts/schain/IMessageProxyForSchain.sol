@@ -25,11 +25,11 @@ import "../IMessageProxy.sol";
 
 interface IMessageProxyForSchain is IMessageProxy {
     struct OutgoingMessageData {
-        bytes32 dstChain;
-        uint256 msgCounter;
-        address srcContract;
-        address dstContract;
-        bytes data;
+        bytes32 dstChainHash; // destination chain
+        uint256 msgCounter; // message counter
+        address srcContract; // origin
+        address dstContract; // receiver
+        bytes data; // payload
     }
 
     function verifyOutgoingMessageData(OutgoingMessageData memory message) external view returns (bool);
