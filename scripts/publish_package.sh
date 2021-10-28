@@ -15,13 +15,18 @@ cd "$(dirname "$0")/.."
 BRANCH=$(echo $BRANCH | tr [:upper:] [:lower:] | tr -d [:space:])
 VERSION=$(BRANCH=$BRANCH ./scripts/calculate_version.sh)
 
-echo "Using $VERSION as a new version"
-
 TAG=""
 if ! [[ $BRANCH == 'stable' ]]
 then
     TAG="--tag $BRANCH"
 fi
+
+if [[ "$VERSION" == *-stable.0 ]]
+then
+    VERSION=${VERSION%-stable.0}
+fi
+
+echo "Using $VERSION as a new version"
 
 cp LICENSE contracts
 cp README.md contracts
