@@ -23,12 +23,21 @@ pragma solidity >=0.6.10 <0.9.0;
 
 
 interface IMessageProxy {
+
+    /**
+     * @dev Structure that describes message. Should contain sender of message,
+     * destination contract on schain that will receiver message,
+     * data that contains all needed info about token or ETH.
+     */
     struct Message {
         address sender;
         address destinationContract;
         bytes data;
     }
 
+    /**
+     * @dev Structure that contains fields for bls signature.
+     */
     struct Signature {
         uint256[2] blsSignature;
         uint256 hashA;
