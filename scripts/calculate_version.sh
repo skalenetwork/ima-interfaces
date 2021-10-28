@@ -18,11 +18,6 @@ if [ -z "$VERSION" ]; then
       exit 1
 fi
 
-if [[ $BRANCH == 'master' ]]; then
-    echo "$VERSION"
-    exit 1
-fi
-
 git fetch --tags > /dev/null
 
 for (( NUMBER=0; ; NUMBER++ ))
