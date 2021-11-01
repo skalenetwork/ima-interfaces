@@ -29,4 +29,13 @@ interface IDepositBoxERC721 is IDepositBox {
     function addERC721TokenByOwner(string calldata schainName, address erc721OnMainnet) external;
     function getFunds(string calldata schainName, address erc721OnMainnet, address receiver, uint tokenId) external;
     function getSchainToERC721(string calldata schainName, address erc721OnMainnet) external view returns (bool);
+    function getSchainToAllERC721Length(string calldata schainName) external view returns (uint256);
+    function getSchainToAllERC721(
+        string calldata schainName,
+        uint256 from,
+        uint256 to
+    )
+        external
+        view
+        returns (address[] memory);
 }
