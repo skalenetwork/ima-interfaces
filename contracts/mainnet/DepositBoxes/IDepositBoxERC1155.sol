@@ -41,4 +41,13 @@ interface IDepositBoxERC1155 is IDepositBox {
         uint256[] memory amounts
     ) external;
     function getSchainToERC1155(string calldata schainName, address erc1155OnMainnet) external view returns (bool);
+    function getSchainToAllERC1155Length(string calldata schainName) external view returns (uint256);
+    function getSchainToAllERC1155(
+        string calldata schainName,
+        uint256 from,
+        uint256 to
+    )
+        external
+        view
+        returns (address[] memory);
 }
