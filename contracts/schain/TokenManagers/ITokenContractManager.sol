@@ -21,20 +21,17 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
-import "./ITokenContractManager.sol";
+import "../ICommunityLocker.sol";
+import "../IMessageProxyForSchain.sol";
+import "../ITokenManager.sol";
+import "../ITokenManagerLinker.sol";
 
-interface ITokenManagerERC20 is ITokenContractManager {
-    function exitToMainERC20(
-        address contractOnMainnet,
-        uint256 amount
-    ) external;
-    function transferToSchainERC20(
-        string calldata targetSchainName,
-        address contractOnMainnet,
-        uint256 amount
-    ) external;
-    function addERC20TokenByOwner(
-        address erc20OnMainnet,
-        address erc20OnSchain
+interface ITokenContractManager is ITokenManager {
+    function initialize(
+        string memory newChainName,
+        IMessageProxyForSchain newMessageProxy,
+        ITokenManagerLinker newIMALinker,
+        ICommunityLocker newCommunityLocker,
+        address newDepositBox
     ) external;
 }

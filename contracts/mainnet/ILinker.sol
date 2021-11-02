@@ -31,6 +31,7 @@ interface ILinker is ITwin {
     function allowInterchainConnections(string calldata schainName) external;
     function kill(string calldata schainName) external;
     function disconnectSchain(string calldata schainName) external;
+    function interchainConnections(bytes32) external view returns (bool);
     function isNotKilled(bytes32 schainHash) external view returns (bool);
     function hasMainnetContract(address mainnetContract) external view returns (bool);
     function hasSchain(string calldata schainName) external view returns (bool connected);

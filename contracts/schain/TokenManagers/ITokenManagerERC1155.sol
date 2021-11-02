@@ -21,10 +21,10 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
-import "../ITokenManager.sol";
+import "./ITokenContractManager.sol";
 
 
-interface ITokenManagerERC1155 is ITokenManager {
+interface ITokenManagerERC1155 is ITokenContractManager {
     function exitToMainERC1155(
         address contractOnMainnet,
         uint256 id,

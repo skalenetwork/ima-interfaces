@@ -22,6 +22,7 @@
 pragma solidity >=0.6.10 <0.9.0;
 
 import "../IMessageProxy.sol";
+import "./IKeyStorage.sol";
 
 interface IMessageProxyForSchain is IMessageProxy {
     struct OutgoingMessageData {
@@ -32,5 +33,6 @@ interface IMessageProxyForSchain is IMessageProxy {
         bytes data; // payload
     }
 
+    function initialize(IKeyStorage blsKeyStorage, string memory schainName) external;
     function verifyOutgoingMessageData(OutgoingMessageData memory message) external view returns (bool);
 }
