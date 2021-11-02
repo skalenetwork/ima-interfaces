@@ -22,10 +22,12 @@
 pragma solidity >=0.6.10 <0.9.0;
 
 import "../IMessageReceiver.sol";
+import "./IMessageProxyForSchain.sol";
 import "./ITokenManager.sol";
 
 
 interface ITokenManagerLinker is IMessageReceiver {
+    function initialize(IMessageProxyForSchain newMessageProxyAddress, address linker) external;
     function registerTokenManager(ITokenManager newTokenManager) external;
     function removeTokenManager(ITokenManager tokenManagerAddress) external;
     function connectSchain(

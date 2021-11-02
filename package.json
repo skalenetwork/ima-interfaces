@@ -24,7 +24,9 @@
     "slither": "slither .",
     "fullCheck": "yarn lint && yarn cspell && yarn slither"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@skalenetwork/skale-manager-interfaces": "^0.1.2"
+  },
   "devDependencies": {
     "@types/node": "^16.11.6",
     "cspell": "^5.12.3",

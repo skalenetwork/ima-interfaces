@@ -21,10 +21,22 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
-import "../ITokenManager.sol";
 import "../tokens/IEthErc20.sol";
+import "../ICommunityLocker.sol";
+import "../IMessageProxyForSchain.sol";
+import "../ITokenManager.sol";
+import "../ITokenManagerLinker.sol";
+
 
 interface ITokenManagerEth is ITokenManager {
+    function initialize(
+        string memory newChainName,
+        IMessageProxyForSchain newMessageProxy,
+        ITokenManagerLinker newIMALinker,
+        ICommunityLocker newCommunityLocker,
+        address newDepositBox,
+        IEthErc20 ethErc20Address
+    ) external;
     function setEthErc20Address(IEthErc20 newEthErc20Address) external;
     function exitToMain(uint256 amount) external;
     function transferToSchain(string memory targetSchainName, uint256 amount) external;

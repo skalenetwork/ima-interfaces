@@ -21,10 +21,20 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
+import "@skalenetwork/skale-manager-interfaces/IContractManager.sol";
+
+
+import "./ILinker.sol";
+import "./IMessageProxyForMainnet.sol";
 import "./ITwin.sol";
 
 
 interface ICommunityPool is ITwin {
+    function initialize(
+        IContractManager contractManagerOfSkaleManagerValue,
+        ILinker linker,
+        IMessageProxyForMainnet messageProxyValue
+    ) external;
     function refundGasByUser(bytes32 schainHash, address payable node, address user, uint gas) external returns (uint);
     function rechargeUserWallet(string calldata schainName, address user) external payable;
     function withdrawFunds(string calldata schainName, uint amount) external;
