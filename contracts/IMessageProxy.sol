@@ -64,9 +64,18 @@ interface IMessageProxy {
     function registerExtraContract(string memory chainName, address extraContract) external;
     function removeExtraContract(string memory schainName, address extraContract) external;
     function isContractRegistered(
-        string calldata schainName,
+        bytes32 schainHash,
         address contractAddress
     ) external view returns (bool);
+    function getContractRegisteredLength(bytes32 schainHash) external view returns (uint256);
+    function getContractRegisteredRange(
+        bytes32 schainHash,
+        uint256 from,
+        uint256 to
+    )
+        external
+        view
+        returns (address[] memory);
     function getOutgoingMessagesCounter(string calldata targetSchainName) external view returns (uint256);
     function getIncomingMessagesCounter(string calldata fromSchainName) external view returns (uint256);
     function isConnectedChain(string memory schainName) external view returns (bool);
