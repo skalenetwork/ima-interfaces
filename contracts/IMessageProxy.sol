@@ -63,6 +63,7 @@ interface IMessageProxy {
     ) external;
     function registerExtraContract(string memory chainName, address extraContract) external;
     function removeExtraContract(string memory schainName, address extraContract) external;
+    function setVersion(string calldata newVersion) external;
     function isContractRegistered(
         bytes32 schainHash,
         address contractAddress
