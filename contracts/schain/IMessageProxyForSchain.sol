@@ -35,4 +35,5 @@ interface IMessageProxyForSchain is IMessageProxy {
 
     function initialize(IKeyStorage blsKeyStorage, string memory schainName) external;
     function verifyOutgoingMessageData(OutgoingMessageData memory message) external view returns (bool);
+    function verifySignature(bytes32 hashedMessage, Signature memory signature) external view returns (bool);
 }
