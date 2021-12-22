@@ -62,7 +62,7 @@ jobs:
         release_name: ${{ env.VERSION }}
         prerelease: ${{ env.PRERELEASE }}
 
-  build:
+  clean:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged
     steps:
