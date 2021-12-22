@@ -1,16 +1,16 @@
 name: Build and publish
 on:
+  push:
   pull_request:
     types: [closed]
     branches:
       - stable
       - beta
-      - develop      
+      - develop
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged
     steps:
     - uses: actions/checkout@v2
 
@@ -51,7 +51,7 @@ jobs:
       env:
         BRANCH: ${{ env.BRANCH }}
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-    
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -61,3 +61,33 @@ jobs:
         tag_name: ${{ env.VERSION }}
         release_name: ${{ env.VERSION }}
         prerelease: ${{ env.PRERELEASE }}
+
+  clean:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - uses: actions/cache@v2
+      id: yarn-cache
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+    
+    - name: Set up Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Remove feature tag
+      run: |
+        export SOURCE_BRANCH=${GITHUB_HEAD_REF##*/}
+        echo "Source branch: $SOURCE_BRANCH"
+        test -n "$SOURCE_BRANCH" && yarn npm tag remove @skalenetwork/ima-interfaces $SOURCE_BRANCH
