@@ -94,4 +94,4 @@ jobs:
       run: |
         export SOURCE_BRANCH=${GITHUB_HEAD_REF##*/}
         echo "Source branch: $SOURCE_BRANCH"
-        test -n "$SOURCE_BRANCH" && yarn npm tag remove @skalenetwork/ima-interfaces $SOURCE_BRANCH
+        test -n "$SOURCE_BRANCH" && npm dist-tag rm @skalenetwork/ima-interfaces $SOURCE_BRANCH
