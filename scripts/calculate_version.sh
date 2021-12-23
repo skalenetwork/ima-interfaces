@@ -23,8 +23,7 @@ git fetch --tags > /dev/null
 for (( NUMBER=0; ; NUMBER++ ))
 do
     FULL_VERSION="$VERSION-$BRANCH.$NUMBER"
-    # if ! [[ $(git tag -l | grep "$FULL_VERSION") ]]
-    if ! [[ $(npm dist-tag ls @skalenetwork/ima-interfaces | grep "$FULL_VERSION") ]]
+    if ! [[ $(git tag -l | grep "$FULL_VERSION") ]]
     then
         echo "$FULL_VERSION" | tr / -
         break
