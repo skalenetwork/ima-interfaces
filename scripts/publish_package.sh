@@ -13,7 +13,7 @@ fi
 cd "$(dirname "$0")/.."
 
 BRANCH=$(echo $BRANCH | tr [:upper:] [:lower:] | tr -d [:space:])
-VERSION=$(BRANCH=$BRANCH ./scripts/calculate_version.sh)
+VERSION=$(BRANCH=$BRANCH LOG=true ./scripts/calculate_version.sh)
 
 TAG=""
 if ! [[ $BRANCH == 'stable' ]]

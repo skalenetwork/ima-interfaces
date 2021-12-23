@@ -52,7 +52,6 @@ jobs:
 
     - name: Publish NPM package
       run: |
-        git tag -l
         ./scripts/publish_package.sh
       env:
         BRANCH: ${{ env.BRANCH }}

@@ -19,6 +19,10 @@ if [ -z "$VERSION" ]; then
 fi
 
 git fetch --tags > /dev/null
+if [ "$LOG" ]
+then
+    git tag -l
+fi
 
 for (( NUMBER=0; ; NUMBER++ ))
 do
