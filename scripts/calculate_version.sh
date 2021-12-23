@@ -27,6 +27,10 @@ fi
 for (( NUMBER=0; ; NUMBER++ ))
 do
     FULL_VERSION="$VERSION-$BRANCH.$NUMBER"
+    if [ "$LOG" ]
+    then
+        echo "$FULL_VERSION"
+    fi
     if ! [[ $(git tag -l | grep "$FULL_VERSION") ]]
     then
         echo "$FULL_VERSION" | tr / -
