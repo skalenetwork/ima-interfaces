@@ -31,6 +31,8 @@ do
     then
         echo "$FULL_VERSION"
         echo "$NUMBER"
+        git tag -l
+        echo "----"
         git tag -l | grep "$FULL_VERSION"
     fi
     if ! [[ $(git tag -l | grep "$FULL_VERSION") ]]
