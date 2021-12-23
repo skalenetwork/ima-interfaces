@@ -68,7 +68,7 @@ jobs:
 
   clean:
     runs-on: ubuntu-latest
-    # if: github.event.pull_request.merged
+    if: github.event.pull_request.merged
     steps:
     - uses: actions/checkout@v2
     
@@ -83,6 +83,5 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: |
         export SOURCE_BRANCH=${GITHUB_HEAD_REF##*/}
-        export SOURCE_BRANCH="publish"
         echo "Source branch: $SOURCE_BRANCH"
         npm dist-tag rm @skalenetwork/ima-interfaces $SOURCE_BRANCH
