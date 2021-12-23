@@ -19,7 +19,6 @@ if [ -z "$VERSION" ]; then
 fi
 
 git fetch --tags > /dev/null
-git tag -l
 
 for (( NUMBER=0; ; NUMBER++ ))
 do
