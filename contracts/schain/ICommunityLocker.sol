@@ -36,5 +36,5 @@ interface ICommunityLocker is IMessageReceiver {
     ) external;
     function checkAllowedToSendMessage(address receiver) external;
     function setTimeLimitPerMessage(uint newTimeLimitPerMessage) external;
-    function setGasPrice(uint gasPrice) external;
+    function setGasPrice(uint gasPrice, IMessageProxyForSchain.Signature memory signature) external;
 }
