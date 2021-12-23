@@ -30,6 +30,7 @@ do
     if [ "$LOG" ]
     then
         echo "$FULL_VERSION"
+        echo "$NUMBER"
     fi
     if ! [[ $(git tag -l | grep "$FULL_VERSION") ]]
     then
