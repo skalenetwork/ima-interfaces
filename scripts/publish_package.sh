@@ -12,7 +12,7 @@ fi
 
 cd "$(dirname "$0")/.."
 
-BRANCH=$(echo $BRANCH | tr -d [:space:])
+BRANCH=$(echo $BRANCH | tr [:upper:] [:lower:] | tr -d [:space:])
 VERSION=$(BRANCH=$BRANCH ./scripts/calculate_version.sh)
 
 TAG=""
