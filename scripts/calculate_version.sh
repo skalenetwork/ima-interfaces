@@ -19,22 +19,10 @@ if [ -z "$VERSION" ]; then
 fi
 
 git fetch --tags > /dev/null
-if [ "$LOG" ]
-then
-    git tag -l
-fi
 
 for (( NUMBER=0; ; NUMBER++ ))
 do
     FULL_VERSION="$VERSION-$BRANCH.$NUMBER"
-    if [ "$LOG" ]
-    then
-        echo "$FULL_VERSION"
-        echo "$NUMBER"
-        git tag -l
-        echo "----"
-        git tag -l | grep "$FULL_VERSION"
-    fi
     if ! [[ $(git tag -l | grep "$FULL_VERSION") ]]
     then
         echo "$FULL_VERSION" | tr / -
