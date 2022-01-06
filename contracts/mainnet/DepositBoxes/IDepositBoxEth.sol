@@ -29,5 +29,6 @@ interface IDepositBoxEth is IDepositBox {
     function deposit(string memory schainName) external payable;
     function getMyEth() external;
     function getFunds(string calldata schainName, address payable receiver, uint amount) external;
-    function switchActiveEthTransfers(string calldata schainName) external;
+    function enableActiveEthTransfers(string calldata schainName) external;
+    function disableActiveEthTransfers(string calldata schainName) external;
 }
