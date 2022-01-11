@@ -21,19 +21,15 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
-import "../IMessageReceiver.sol";
 import "./IMessageProxyForSchain.sol";
 import "./ITokenManager.sol";
 
 
-interface ITokenManagerLinker is IMessageReceiver {
+interface ITokenManagerLinker {
     function initialize(IMessageProxyForSchain newMessageProxyAddress, address linker) external;
     function registerTokenManager(ITokenManager newTokenManager) external;
     function removeTokenManager(ITokenManager tokenManagerAddress) external;
-    function connectSchain(
-        string calldata schainName,
-        address[] calldata tokenManagerAddresses
-    ) external;
+    function connectSchain(string calldata schainName) external;
     function disconnectSchain(string calldata schainName) external;
     function hasTokenManager(ITokenManager tokenManager) external view returns (bool);
     function hasSchain(string calldata schainName) external view returns (bool connected);
