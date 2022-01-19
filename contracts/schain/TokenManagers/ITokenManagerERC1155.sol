@@ -48,6 +48,7 @@ interface ITokenManagerERC1155 is ITokenContractManager {
         uint256[] memory amounts
     ) external;
     function addERC1155TokenByOwner(
+        string calldata targetChainName,
         address erc1155OnMainnet,
         address erc1155OnSchain
     ) external;
