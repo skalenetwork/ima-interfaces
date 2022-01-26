@@ -39,5 +39,4 @@ interface ITokenManagerEth is ITokenManager {
     ) external;
     function setEthErc20Address(IEthErc20 newEthErc20Address) external;
     function exitToMain(uint256 amount) external;
-    function transferToSchain(string memory targetSchainName, uint256 amount) external;
 }

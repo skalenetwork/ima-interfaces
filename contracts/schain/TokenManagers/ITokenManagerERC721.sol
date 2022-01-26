@@ -31,6 +31,7 @@ interface ITokenManagerERC721 is ITokenContractManager {
         uint256 tokenId
     ) external;
     function addERC721TokenByOwner(
+        string calldata targetChainName,
         address erc721OnMainnet,
         address erc721OnSchain
     ) external;
