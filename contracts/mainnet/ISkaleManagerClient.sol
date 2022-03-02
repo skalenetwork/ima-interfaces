@@ -21,6 +21,10 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
+import "@skalenetwork/skale-manager-interfaces/IContractManager.sol";
+
+
 interface ISkaleManagerClient {
+    function initialize(IContractManager newContractManagerOfSkaleManager) external;
     function isSchainOwner(address sender, bytes32 schainHash) external view returns (bool);
 }

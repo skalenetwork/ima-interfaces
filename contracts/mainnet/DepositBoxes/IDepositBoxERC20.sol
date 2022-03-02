@@ -25,8 +25,21 @@ import "../IDepositBox.sol";
 
 
 interface IDepositBoxERC20 is IDepositBox {
+    function initializeAllTokensForSchain(
+        string calldata schainName,
+        address[] calldata tokens
+    ) external;
     function depositERC20(string calldata schainName, address erc20OnMainnet, uint256 amount) external;
     function addERC20TokenByOwner(string calldata schainName, address erc20OnMainnet) external;
     function getFunds(string calldata schainName, address erc20OnMainnet, address receiver, uint amount) external;
     function getSchainToERC20(string calldata schainName, address erc20OnMainnet) external view returns (bool);
+    function getSchainToAllERC20Length(string calldata schainName) external view returns (uint256);
+    function getSchainToAllERC20(
+        string calldata schainName,
+        uint256 from,
+        uint256 to
+    )
+        external
+        view
+        returns (address[] memory);
 }

@@ -23,12 +23,21 @@ pragma solidity >=0.6.10 <0.9.0;
 
 
 interface IMessageProxy {
+
+    /**
+     * @dev Structure that describes message. Should contain sender of message,
+     * destination contract on schain that will receiver message,
+     * data that contains all needed info about token or ETH.
+     */
     struct Message {
         address sender;
         address destinationContract;
         bytes data;
     }
 
+    /**
+     * @dev Structure that contains fields for bls signature.
+     */
     struct Signature {
         uint256[2] blsSignature;
         uint256 hashA;
@@ -54,10 +63,20 @@ interface IMessageProxy {
     ) external;
     function registerExtraContract(string memory chainName, address extraContract) external;
     function removeExtraContract(string memory schainName, address extraContract) external;
+    function setVersion(string calldata newVersion) external;
     function isContractRegistered(
-        string calldata schainName,
+        bytes32 schainHash,
         address contractAddress
     ) external view returns (bool);
+    function getContractRegisteredLength(bytes32 schainHash) external view returns (uint256);
+    function getContractRegisteredRange(
+        bytes32 schainHash,
+        uint256 from,
+        uint256 to
+    )
+        external
+        view
+        returns (address[] memory);
     function getOutgoingMessagesCounter(string calldata targetSchainName) external view returns (uint256);
     function getIncomingMessagesCounter(string calldata fromSchainName) external view returns (uint256);
     function isConnectedChain(string memory schainName) external view returns (bool);

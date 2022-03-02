@@ -22,15 +22,18 @@
 pragma solidity >=0.6.10 <0.9.0;
 
 import "../IMessageProxy.sol";
+import "./IKeyStorage.sol";
 
 interface IMessageProxyForSchain is IMessageProxy {
     struct OutgoingMessageData {
-        bytes32 dstChain;
-        uint256 msgCounter;
-        address srcContract;
-        address dstContract;
-        bytes data;
+        bytes32 dstChainHash; // destination chain
+        uint256 msgCounter; // message counter
+        address srcContract; // origin
+        address dstContract; // receiver
+        bytes data; // payload
     }
 
+    function initialize(IKeyStorage blsKeyStorage, string memory schainName) external;
     function verifyOutgoingMessageData(OutgoingMessageData memory message) external view returns (bool);
+    function verifySignature(bytes32 hashedMessage, Signature memory signature) external view returns (bool);
 }
