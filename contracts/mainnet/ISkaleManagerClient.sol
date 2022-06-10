@@ -27,4 +27,5 @@ import "@skalenetwork/skale-manager-interfaces/IContractManager.sol";
 interface ISkaleManagerClient {
     function initialize(IContractManager newContractManagerOfSkaleManager) external;
     function isSchainOwner(address sender, bytes32 schainHash) external view returns (bool);
+    function isAgentAuthorized(bytes32 schainHash, address sender) external view returns (bool);
 }
