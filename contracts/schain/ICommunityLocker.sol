@@ -23,8 +23,18 @@ pragma solidity >=0.6.10 <0.9.0;
 
 import "../IMessageReceiver.sol";
 
+import "./IMessageProxyForSchain.sol";
+import "./ITokenManagerLinker.sol";
+
 
 interface ICommunityLocker is IMessageReceiver {
+    function initialize(
+        string memory newSchainName,
+        IMessageProxyForSchain newMessageProxy,
+        ITokenManagerLinker newTokenManagerLinker,
+        address newCommunityPool
+    ) external;
     function checkAllowedToSendMessage(address receiver) external;
     function setTimeLimitPerMessage(uint newTimeLimitPerMessage) external;
+    function setGasPrice(uint gasPrice, uint timestamp, IMessageProxyForSchain.Signature memory signature) external;
 }

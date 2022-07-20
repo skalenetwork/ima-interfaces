@@ -28,6 +28,5 @@ interface IMessageReceiver {
         address sender,
         bytes calldata data
     )
-        external
-        returns (address);
+        external;
 }

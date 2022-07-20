@@ -12,6 +12,7 @@ then
     exit 1
 fi
 
+BRANCH=$(echo $BRANCH | tr [:upper:] [:lower:] | tr -d [:space:])
 
 if [ -z "$VERSION" ]; then
       echo "The base version is not set."

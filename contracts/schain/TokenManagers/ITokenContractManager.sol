@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 /**
- *   ITokenManagerLinker - SKALE Interchain Messaging Agent
+ *   ITokenManagerERC20 - SKALE Interchain Messaging Agent
  *   Copyright (C) 2021-Present SKALE Labs
  *   @author Dmytro Stebaiev
  *
@@ -21,16 +21,17 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
-import "./IMessageProxyForSchain.sol";
-import "./ITokenManager.sol";
+import "../ICommunityLocker.sol";
+import "../IMessageProxyForSchain.sol";
+import "../ITokenManager.sol";
+import "../ITokenManagerLinker.sol";
 
-
-interface ITokenManagerLinker {
-    function initialize(IMessageProxyForSchain newMessageProxyAddress, address linker) external;
-    function registerTokenManager(ITokenManager newTokenManager) external;
-    function removeTokenManager(ITokenManager tokenManagerAddress) external;
-    function connectSchain(string calldata schainName) external;
-    function disconnectSchain(string calldata schainName) external;
-    function hasTokenManager(ITokenManager tokenManager) external view returns (bool);
-    function hasSchain(string calldata schainName) external view returns (bool connected);
+interface ITokenContractManager is ITokenManager {
+    function initialize(
+        string memory newChainName,
+        IMessageProxyForSchain newMessageProxy,
+        ITokenManagerLinker newIMALinker,
+        ICommunityLocker newCommunityLocker,
+        address newDepositBox
+    ) external;
 }
