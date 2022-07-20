@@ -25,6 +25,11 @@ import "../IMessageProxy.sol";
 import "./ICommunityPool.sol";
 
 interface IMessageProxyForMainnet is IMessageProxy {
+    struct Pause {
+        bool pauseUnlimited;
+        uint256 pausedUntil;
+    }
+
     function setCommunityPool(ICommunityPool newCommunityPoolAddress) external;
     function setNewHeaderMessageGasCost(uint256 newHeaderMessageGasCost) external;
     function setNewMessageGasCost(uint256 newMessageGasCost) external;
