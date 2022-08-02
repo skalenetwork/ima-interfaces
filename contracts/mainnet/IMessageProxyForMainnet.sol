@@ -26,8 +26,7 @@ import "./ICommunityPool.sol";
 
 interface IMessageProxyForMainnet is IMessageProxy {
     struct Pause {
-        bool pauseUnlimited;
-        uint256 pausedUntil;
+        bool paused;
     }
 
     function setCommunityPool(ICommunityPool newCommunityPoolAddress) external;
