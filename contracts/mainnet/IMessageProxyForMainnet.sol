@@ -33,7 +33,7 @@ interface IMessageProxyForMainnet is IMessageProxy {
     function setNewHeaderMessageGasCost(uint256 newHeaderMessageGasCost) external;
     function setNewMessageGasCost(uint256 newMessageGasCost) external;
     function pause(string calldata schainName) external;
-    function unpause(string calldata schainName) external;
+    function resume(string calldata schainName) external;
     function messageInProgress() external view returns (bool);
     function isPaused(bytes32 schainHash) external view returns (bool);
 }
