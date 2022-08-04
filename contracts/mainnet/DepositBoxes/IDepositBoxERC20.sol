@@ -32,8 +32,8 @@ interface IDepositBoxERC20 is IDepositBox {
     function depositERC20(string calldata schainName, address erc20OnMainnet, uint256 amount) external;
     function addERC20TokenByOwner(string calldata schainName, address erc20OnMainnet) external;
     function getFunds(string calldata schainName, address erc20OnMainnet, address receiver, uint amount) external;
-    function setBigExitValue(string calldata schainName, address token, uint256 value) external;
-    function setBigExitDelay(string calldata schainName, uint256 delayInSeconds) external;
+    function setBigTransferValue(string calldata schainName, address token, uint256 value) external;
+    function setBigTransferDelay(string calldata schainName, uint256 delayInSeconds) external;
     function getSchainToERC20(string calldata schainName, address erc20OnMainnet) external view returns (bool);
     function getSchainToAllERC20Length(string calldata schainName) external view returns (uint256);
     function getSchainToAllERC20(
