@@ -25,15 +25,23 @@ import "../IDepositBox.sol";
 
 
 interface IDepositBoxERC20 is IDepositBox {
+    function addERC20TokenByOwner(string calldata schainName, address erc20OnMainnet) external;
+    function depositERC20(string calldata schainName, address erc20OnMainnet, uint256 amount) external;
+    function escalate(uint256 transferId) external;   
+    function getFunds(string calldata schainName, address erc20OnMainnet, address receiver, uint amount) external;
     function initializeAllTokensForSchain(
         string calldata schainName,
         address[] calldata tokens
     ) external;
-    function depositERC20(string calldata schainName, address erc20OnMainnet, uint256 amount) external;
-    function addERC20TokenByOwner(string calldata schainName, address erc20OnMainnet) external;
-    function getFunds(string calldata schainName, address erc20OnMainnet, address receiver, uint amount) external;
+    function rejectTransfer(uint transferId) external;
+    function retrieve() external;
+    function retrieve(address receiver) external;
+    function setArbitrageDuration(string calldata schainName, uint256 delayInSeconds) external;
     function setBigTransferValue(string calldata schainName, address token, uint256 value) external;
     function setBigTransferDelay(string calldata schainName, uint256 delayInSeconds) external;
+    function validateTransfer(uint transferId) external;
+    function getDelayedAmount(address receiver, address token) external view returns (uint256 value);
+    function getNextUnlockTimestamp(address receiver, address token) external view returns (uint256 unlockTimestamp);
     function getSchainToERC20(string calldata schainName, address erc20OnMainnet) external view returns (bool);
     function getSchainToAllERC20Length(string calldata schainName) external view returns (uint256);
     function getSchainToAllERC20(
