@@ -35,7 +35,7 @@ interface IDepositBoxERC20 is IDepositBox {
     ) external;
     function rejectTransfer(uint transferId) external;
     function retrieve() external;
-    function retrieve(address receiver) external;
+    function retrieveFor(address receiver) external;
     function setArbitrageDuration(string calldata schainName, uint256 delayInSeconds) external;
     function setBigTransferValue(string calldata schainName, address token, uint256 value) external;
     function setBigTransferDelay(string calldata schainName, uint256 delayInSeconds) external;
