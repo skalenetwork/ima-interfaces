@@ -46,4 +46,5 @@ interface ICommunityPool is ITwin {
     ) external returns (bool);
     function getBalance(address user, string calldata schainName) external view returns (uint);
     function checkUserBalance(bytes32 schainHash, address receiver) external view returns (bool);
+    function isAmountSufficient(bytes32 schainHash, address receiver, uint256 amount) external view returns (bool);
 }
