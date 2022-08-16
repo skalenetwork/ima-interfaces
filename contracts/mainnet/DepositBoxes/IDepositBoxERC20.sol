@@ -43,6 +43,8 @@ interface IDepositBoxERC20 is IDepositBox {
     function trustReceiver(string calldata schainName, address receiver) external;
     function validateTransfer(uint transferId) external;
     function isReceiverTrusted(bytes32 schainHash, address receiver) external view returns (bool);
+    function getArbitrageDuration(bytes32 schainHash) external view returns (uint256);
+    function getBigTransferThreshold(bytes32 schainHash, address token) external view returns (uint256);
     function getDelayedAmount(address receiver, address token) external view returns (uint256 value);
     function getNextUnlockTimestamp(address receiver, address token) external view returns (uint256 unlockTimestamp);
     function getSchainToERC20(string calldata schainName, address erc20OnMainnet) external view returns (bool);
@@ -55,5 +57,7 @@ interface IDepositBoxERC20 is IDepositBox {
         external
         view
         returns (address[] memory);
+    function getTimeDelay(bytes32 schainHash) external view returns (uint256);
     function getTrustedReceiver(string calldata schainName, uint256 index) external view returns (address);
+    function getTrustedReceiversAmount(bytes32 schainHash) external view returns (uint256);
 }
