@@ -25,13 +25,24 @@ import "../IDepositBox.sol";
 
 
 interface IDepositBoxERC20 is IDepositBox {
-    function initializeAllTokensForSchain(
-        string calldata schainName,
-        address[] calldata tokens
-    ) external;
-    function depositERC20(string calldata schainName, address erc20OnMainnet, uint256 amount) external;
     function addERC20TokenByOwner(string calldata schainName, address erc20OnMainnet) external;
+    function depositERC20(string calldata schainName, address erc20OnMainnet, uint256 amount) external;
+    function escalate(uint256 transferId) external;   
     function getFunds(string calldata schainName, address erc20OnMainnet, address receiver, uint amount) external;
+    function rejectTransfer(uint transferId) external;
+    function retrieve() external;
+    function retrieveFor(address receiver) external;
+    function setArbitrageDuration(string calldata schainName, uint256 delayInSeconds) external;
+    function setBigTransferValue(string calldata schainName, address token, uint256 value) external;
+    function setBigTransferDelay(string calldata schainName, uint256 delayInSeconds) external;
+    function stopTrustingReceiver(string calldata schainName, address receiver) external;
+    function trustReceiver(string calldata schainName, address receiver) external;
+    function validateTransfer(uint transferId) external;
+    function isReceiverTrusted(bytes32 schainHash, address receiver) external view returns (bool);
+    function getArbitrageDuration(bytes32 schainHash) external view returns (uint256);
+    function getBigTransferThreshold(bytes32 schainHash, address token) external view returns (uint256);
+    function getDelayedAmount(address receiver, address token) external view returns (uint256 value);
+    function getNextUnlockTimestamp(address receiver, address token) external view returns (uint256 unlockTimestamp);
     function getSchainToERC20(string calldata schainName, address erc20OnMainnet) external view returns (bool);
     function getSchainToAllERC20Length(string calldata schainName) external view returns (uint256);
     function getSchainToAllERC20(
@@ -42,4 +53,7 @@ interface IDepositBoxERC20 is IDepositBox {
         external
         view
         returns (address[] memory);
+    function getTimeDelay(bytes32 schainHash) external view returns (uint256);
+    function getTrustedReceiver(string calldata schainName, uint256 index) external view returns (address);
+    function getTrustedReceiversAmount(bytes32 schainHash) external view returns (uint256);
 }
