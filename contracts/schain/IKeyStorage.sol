@@ -25,5 +25,6 @@ import "./bls/IFieldOperations.sol";
 
 
 interface IKeyStorage {
+    function initialize() external;
     function getBlsCommonPublicKey() external view returns (IFieldOperations.G2Point memory);
 }

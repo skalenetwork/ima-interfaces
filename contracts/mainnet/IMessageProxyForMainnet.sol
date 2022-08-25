@@ -28,4 +28,5 @@ interface IMessageProxyForMainnet is IMessageProxy {
     function setCommunityPool(ICommunityPool newCommunityPoolAddress) external;
     function setNewHeaderMessageGasCost(uint256 newHeaderMessageGasCost) external;
     function setNewMessageGasCost(uint256 newMessageGasCost) external;
+    function messageInProgress() external view returns (bool);
 }
