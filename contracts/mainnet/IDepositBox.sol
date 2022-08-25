@@ -21,11 +21,21 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
+import "@skalenetwork/skale-manager-interfaces/IContractManager.sol";
+
+import "../IGasReimbursable.sol";
 import "../IMessageReceiver.sol";
+import "./ILinker.sol";
+import "./IMessageProxyForMainnet.sol";
 import "./ITwin.sol";
 
 
-interface IDepositBox is ITwin, IMessageReceiver {
+interface IDepositBox is ITwin, IMessageReceiver, IGasReimbursable {
+    function initialize(
+        IContractManager contractManagerOfSkaleManagerValue,
+        ILinker newLinker,
+        IMessageProxyForMainnet messageProxyValue
+    ) external;
     function enableWhitelist(string memory schainName) external;
     function disableWhitelist(string memory schainName) external;
     function isWhitelisted(string memory schainName) external view returns (bool);

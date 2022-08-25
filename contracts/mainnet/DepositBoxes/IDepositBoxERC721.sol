@@ -25,8 +25,21 @@ import "../IDepositBox.sol";
 
 
 interface IDepositBoxERC721 is IDepositBox {
+    function initializeAllTokensForSchain(
+        string calldata schainName,
+        address[] calldata tokens
+    ) external;
     function depositERC721(string calldata schainName, address erc721OnMainnet, uint256 tokenId) external;
     function addERC721TokenByOwner(string calldata schainName, address erc721OnMainnet) external;
     function getFunds(string calldata schainName, address erc721OnMainnet, address receiver, uint tokenId) external;
     function getSchainToERC721(string calldata schainName, address erc721OnMainnet) external view returns (bool);
+    function getSchainToAllERC721Length(string calldata schainName) external view returns (uint256);
+    function getSchainToAllERC721(
+        string calldata schainName,
+        uint256 from,
+        uint256 to
+    )
+        external
+        view
+        returns (address[] memory);
 }
