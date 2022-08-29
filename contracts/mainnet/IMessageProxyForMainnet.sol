@@ -35,4 +35,13 @@ interface IMessageProxyForMainnet is IMessageProxy {
     function messageInProgress() external view returns (bool);
     function isPaused(bytes32 schainHash) external view returns (bool);
     function isReimbursingContract(bytes32 schainHash, address contractAddress) external view returns (bool);
+    function getReimbursedContractsLength(bytes32 schainHash) external view returns (uint256);
+    function getReimbursedContractsRange(
+        bytes32 schainHash,
+        uint256 from,
+        uint256 to
+    )
+        external
+        view
+        returns (address[] memory contractsInRange);
 }
