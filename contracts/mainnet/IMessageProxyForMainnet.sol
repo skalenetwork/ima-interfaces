@@ -31,7 +31,7 @@ interface IMessageProxyForMainnet is IMessageProxy {
     function pause(string calldata schainName) external;
     function resume(string calldata schainName) external;
     function addReimbursedContract(string memory schainName, address reimbursedContract) external;
-    function removeExtraContract(string memory schainName, address reimbursedContract) external;
+    function removeReimbursedContract(string memory schainName, address reimbursedContract) external;
     function messageInProgress() external view returns (bool);
     function isPaused(bytes32 schainHash) external view returns (bool);
     function isReimbursingContract(bytes32 schainHash, address contractAddress) external view returns (bool);
