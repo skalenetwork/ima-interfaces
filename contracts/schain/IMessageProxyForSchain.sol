@@ -23,6 +23,7 @@ pragma solidity >=0.6.10 <0.9.0;
 
 import "../IMessageProxy.sol";
 import "./IKeyStorage.sol";
+import "./ITokenManagerLinker.sol";
 
 interface IMessageProxyForSchain is IMessageProxy {
     struct OutgoingMessageData {
@@ -33,10 +34,14 @@ interface IMessageProxyForSchain is IMessageProxy {
         bytes data; // payload
     }
 
-    function initialize(IKeyStorage blsKeyStorage, string memory schainName) external;
+    function initialize(
+        IKeyStorage blsKeyStorage,
+        ITokenManagerLinker tokenManagerLinker,
+        string memory schainName
+    ) external;
     function setMinimumReceiverBalance(uint256 balance) external;
-    function topUpReceiverBalance(address payable receiver) external;
-    function messageInProgress() external view returns (bool);
+    function topUpReceiverBalance(address payable receiver) external; 
+    function messageInProgress() external view returns (bool);       
     function verifyOutgoingMessageData(OutgoingMessageData memory message) external view returns (bool);
     function verifySignature(bytes32 hashedMessage, Signature memory signature) external view returns (bool);
 }
