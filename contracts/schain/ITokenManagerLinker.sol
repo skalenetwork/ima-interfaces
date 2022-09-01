@@ -31,6 +31,6 @@ interface ITokenManagerLinker {
     function removeTokenManager(ITokenManager tokenManagerAddress) external;
     function connectSchain(string calldata schainName) external;
     function disconnectSchain(string calldata schainName) external;
-    function hasTokenManager(ITokenManager tokenManager) external view returns (bool);
+    function hasTokenManager(address tokenManager) external view returns (bool);
     function hasSchain(string calldata schainName) external view returns (bool connected);
 }
