@@ -34,12 +34,9 @@ interface IMessageProxyForSchain is IMessageProxy {
         bytes data; // payload
     }
 
-    function initialize(
-        IKeyStorage blsKeyStorage,
-        ITokenManagerLinker tokenManagerLinker,
-        string memory schainName
-    ) external;
+    function initialize(IKeyStorage blsKeyStorage, string memory schainName) external;
     function setMinimumReceiverBalance(uint256 balance) external;
+    function setTokenManagerLinker(ITokenManagerLinker tokenManagerLinker) external;
     function topUpReceiverBalance(address payable receiver) external; 
     function messageInProgress() external view returns (bool);       
     function verifyOutgoingMessageData(OutgoingMessageData memory message) external view returns (bool);
