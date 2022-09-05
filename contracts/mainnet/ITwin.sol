@@ -27,5 +27,5 @@ interface ITwin is ISkaleManagerClient {
     function addSchainContract(string calldata schainName, address contractReceiver) external;
     function removeSchainContract(string calldata schainName) external;
     function hasSchainContract(string calldata schainName) external view returns (bool);
-    function getSchainContract(bytes32 schainHash) public view returns (address);
+    function getSchainContract(bytes32 schainHash) external view returns (address);
 }
