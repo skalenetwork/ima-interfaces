@@ -33,6 +33,12 @@ interface ITokenManagerERC20 is ITokenContractManager {
         address contractOnMainnet,
         uint256 amount
     ) external;
+    function transferToSchainERC20Direct(
+        string calldata targetSchainName,
+        address contractOnMainnet,
+        uint256 amount,
+        address receiver
+    ) external;
     function addERC20TokenByOwner(
         string calldata targetChainName,
         address erc20OnMainnet,
