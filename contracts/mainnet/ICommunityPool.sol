@@ -39,7 +39,6 @@ interface ICommunityPool is ITwin {
     function rechargeUserWallet(string calldata schainName, address user) external payable;
     function withdrawFunds(string calldata schainName, uint amount) external;
     function setMinTransactionGas(uint newMinTransactionGas) external;
-    function setMultiplier(uint newMultiplierNumerator, uint newMultiplierDivider) external;
     function refundGasBySchainWallet(
         bytes32 schainHash,
         address payable node,
@@ -47,5 +46,4 @@ interface ICommunityPool is ITwin {
     ) external returns (bool);
     function getBalance(address user, string calldata schainName) external view returns (uint);
     function checkUserBalance(bytes32 schainHash, address receiver) external view returns (bool);
-    function getRecommendedRechargeAmount(bytes32 schainHash, address receiver) external view returns (uint256);
 }
