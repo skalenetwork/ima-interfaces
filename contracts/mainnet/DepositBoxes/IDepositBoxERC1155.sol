@@ -25,10 +25,6 @@ import "../IDepositBox.sol";
 
 
 interface IDepositBoxERC1155 is IDepositBox {
-    function initializeAllTokensForSchain(
-        string calldata schainName,
-        address[] calldata tokens
-    ) external;
     function depositERC1155(string calldata schainName, address erc1155OnMainnet, uint256 id, uint256 amount) external;
     function depositERC1155Batch(
         string calldata schainName,
