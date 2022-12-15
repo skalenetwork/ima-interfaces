@@ -27,7 +27,8 @@ import "../IDepositBox.sol";
 interface IDepositBoxERC20 is IDepositBox {
     function addERC20TokenByOwner(string calldata schainName, address erc20OnMainnet) external;
     function depositERC20(string calldata schainName, address erc20OnMainnet, uint256 amount) external;
-    function escalate(uint256 transferId) external;   
+    function doTransfer(address token, address receiver, uint256 amount) external;
+    function escalate(uint256 transferId) external;
     function getFunds(string calldata schainName, address erc20OnMainnet, address receiver, uint amount) external;
     function rejectTransfer(uint transferId) external;
     function retrieve() external;
