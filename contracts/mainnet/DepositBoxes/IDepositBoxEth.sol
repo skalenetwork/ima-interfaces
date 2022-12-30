@@ -27,6 +27,7 @@ import "../IDepositBox.sol";
 interface IDepositBoxEth is IDepositBox {
     receive() external payable;
     function deposit(string memory schainName) external payable;
+    function depositDirect(string memory schainName, address receiver) external payable;
     function getMyEth() external;
     function getFunds(string calldata schainName, address payable receiver, uint amount) external;
     function enableActiveEthTransfers(string calldata schainName) external;
