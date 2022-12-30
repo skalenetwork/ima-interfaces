@@ -34,6 +34,7 @@ interface IDepositBoxERC20 is IDepositBox {
         address receiver
     ) external;
     function escalate(uint256 transferId) external;   
+    function doTransfer(address token, address receiver, uint256 amount) external;
     function getFunds(string calldata schainName, address erc20OnMainnet, address receiver, uint amount) external;
     function rejectTransfer(uint transferId) external;
     function retrieve() external;
