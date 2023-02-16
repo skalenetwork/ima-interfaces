@@ -26,11 +26,11 @@ import "./ITokenManager.sol";
 
 
 interface ITokenManagerLinker {
+    function connectSchain(string calldata schainName) external;
+    function disconnectSchain(string calldata schainName) external;
     function initialize(IMessageProxyForSchain newMessageProxyAddress, address linker) external;
     function registerTokenManager(ITokenManager newTokenManager) external;
     function removeTokenManager(ITokenManager tokenManagerAddress) external;
-    function connectSchain(string calldata schainName) external;
-    function disconnectSchain(string calldata schainName) external;
-    function hasTokenManager(ITokenManager tokenManager) external view returns (bool);
     function hasSchain(string calldata schainName) external view returns (bool connected);
+    function hasTokenManager(address tokenManager) external view returns (bool);
 }
