@@ -80,4 +80,5 @@ interface IMessageProxy {
     function getOutgoingMessagesCounter(string calldata targetSchainName) external view returns (uint256);
     function getIncomingMessagesCounter(string calldata fromSchainName) external view returns (uint256);
     function isConnectedChain(string memory schainName) external view returns (bool);
+    function getLastOutgoingMessageBlockId(string memory targetSchainName) external view returns (uint);
 }
