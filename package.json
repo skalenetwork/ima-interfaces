@@ -28,7 +28,7 @@
     "@skalenetwork/skale-manager-interfaces": "^0.1.2"
   },
   "devDependencies": {
-    "@types/node": "^16.11.6",
+    "@types/node": "^20.4.5",
     "cspell": "^6.31.2",
     "hardhat": "^2.3.0",
     "solhint": "^3.3.6",
