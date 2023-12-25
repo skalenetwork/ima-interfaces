@@ -1127,9 +1127,9 @@
   integrity sha512-TV7t8GKYaJWsn00tFDqBw8+Uqmr8A0fRU1tvTQhyZzGv0sJCGRQL3JGMI3ucuKo3XIZdUP+Lx7/gh2t3lewy7g==
 
 "@skalenetwork/skale-manager-interfaces@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@skalenetwork/skale-manager-interfaces/-/skale-manager-interfaces-2.0.0.tgz#afb63131e5c498cfa69219567f9f52b85f0856c9"
-  integrity sha512-Pge3p4vpeNaXHjwntX+8b38NEcT81a67I32bbnU+l1uSo4kmyXd0VblHMO84H1Azr9TzF3ZmNCG+GI2yntSx2w==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@skalenetwork/skale-manager-interfaces/-/skale-manager-interfaces-2.1.0.tgz#baf3a5cb60aeb9c1583fbf6f422275291a65c2c1"
+  integrity sha512-tIaV/55lsCFGjus3MJ0HCpmX1HOi6KRpPM6GgUjT+6DoVflHALpsH+RmK9dzdvKd79dggieJc2GFzjwhMrsTEw==
 
 "@solidity-parser/parser@^0.16.0":
   version "0.16.1"
