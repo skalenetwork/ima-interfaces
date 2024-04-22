@@ -47,6 +47,38 @@ interface ITokenManagerERC1155 is ITokenContractManager {
         uint256[] memory ids,
         uint256[] memory amounts
     ) external;
+    function transferToSchainERC1155To(
+        string calldata targetSchainName,
+        address contractOnMainnet,
+        uint256 id,
+        uint256 amount,
+        address receiver
+    ) external;
+    function transferToSchainERC1155Callback(
+        string calldata targetSchainName,
+        address contractOnMainnet,
+        uint256 id,
+        uint256 amount,
+        address receiver,
+        bytes calldata beforeData,
+        bytes calldata afterData
+    ) external;
+    function transferToSchainERC1155BatchTo(
+        string calldata targetSchainName,
+        address contractOnMainnet,
+        uint256[] memory ids,
+        uint256[] memory amounts,
+        address receiver
+    ) external;
+    function transferToSchainERC1155BatchCallback(
+        string calldata targetSchainName,
+        address contractOnMainnet,
+        uint256[] memory ids,
+        uint256[] memory amounts,
+        address receiver,
+        bytes calldata beforeData,
+        bytes calldata afterData
+    ) external;
     function addERC1155TokenByOwner(
         string calldata targetChainName,
         address erc1155OnMainnet,
