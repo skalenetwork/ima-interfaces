@@ -44,8 +44,7 @@ interface ITokenManagerERC20 is ITokenContractManager {
         address contractOnMainnet,
         uint256 amount,
         address receiver,
-        bytes calldata beforeData,
-        bytes calldata afterData
+        IMessages.Callback calldata callback
     ) external;
     function addERC20TokenByOwner(
         string calldata targetChainName,

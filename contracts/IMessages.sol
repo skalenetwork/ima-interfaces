@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 /**
- *   ITokenManagerERC20 - SKALE Interchain Messaging Agent
- *   Copyright (C) 2021-Present SKALE Labs
- *   @author Dmytro Stebaiev
+ *   IMessages.sol - SKALE Interchain Messaging Agent
+ *   Copyright (C) 2024-Present SKALE Labs
+ *   @author Artem Payvin
  *
  *   SKALE IMA is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU Affero General Public License as published
@@ -21,18 +21,10 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
-import "../ICommunityLocker.sol";
-import "../IMessageProxyForSchain.sol";
-import "../ITokenManager.sol";
-import "../ITokenManagerLinker.sol";
-import "../../IMessages.sol";
 
-interface ITokenContractManager is ITokenManager {
-    function initialize(
-        string memory newChainName,
-        IMessageProxyForSchain newMessageProxy,
-        ITokenManagerLinker newIMALinker,
-        ICommunityLocker newCommunityLocker,
-        address newDepositBox
-    ) external;
+interface IMessages {
+    struct Callback {
+        bytes beforeData;
+        bytes afterData;
+    }
 }

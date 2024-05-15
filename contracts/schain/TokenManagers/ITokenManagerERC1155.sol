@@ -60,8 +60,7 @@ interface ITokenManagerERC1155 is ITokenContractManager {
         uint256 id,
         uint256 amount,
         address receiver,
-        bytes calldata beforeData,
-        bytes calldata afterData
+        IMessages.Callback calldata callback
     ) external;
     function transferToSchainERC1155BatchTo(
         string calldata targetSchainName,
@@ -76,8 +75,7 @@ interface ITokenManagerERC1155 is ITokenContractManager {
         uint256[] memory ids,
         uint256[] memory amounts,
         address receiver,
-        bytes calldata beforeData,
-        bytes calldata afterData
+        IMessages.Callback calldata callback
     ) external;
     function addERC1155TokenByOwner(
         string calldata targetChainName,

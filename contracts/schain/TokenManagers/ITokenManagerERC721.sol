@@ -41,8 +41,7 @@ interface ITokenManagerERC721 is ITokenContractManager {
         address contractOnMainnet,
         uint256 tokenId,
         address receiver,
-        bytes calldata beforeData,
-        bytes calldata afterData
+        IMessages.Callback calldata callback
     ) external;
     function addERC721TokenByOwner(
         string calldata targetChainName,
