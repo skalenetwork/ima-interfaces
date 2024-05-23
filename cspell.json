@@ -9,7 +9,8 @@
         "cache/**/*",
         "artifacts/**/*",
         "typechain/**/*",
-        "coverage/**/*"        
+        "coverage/**/*",
+        "venv/**/*"
     ],
     "dictionaries": ["domain-terms", "libraries", "names", "skale-terms", "solidity"],
     "dictionaryDefinitions": [
