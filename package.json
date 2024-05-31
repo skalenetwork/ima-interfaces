@@ -31,7 +31,7 @@
     "@types/node": "^20.4.5",
     "cspell": "^8.0.0",
     "hardhat": "^2.3.0",
-    "solhint": "^4.0.0",
+    "solhint": "^5.0.1",
     "ts-node": "^10.0.0",
     "typescript": "^5.1.6"
   }
