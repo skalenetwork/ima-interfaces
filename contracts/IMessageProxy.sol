@@ -30,11 +30,6 @@ interface IMessageProxy is IMessageListener {
     function registerExtraContractForAll(address extraContract) external;
     function removeExtraContractForAll(address extraContract) external;
     function removeConnectedChain(string memory schainName) external;
-    function postOutgoingMessage(
-        bytes32 targetChainHash,
-        address targetContract,
-        bytes memory data
-    ) external;
     function registerExtraContract(string memory chainName, address extraContract) external;
     function removeExtraContract(string memory schainName, address extraContract) external;
     function setVersion(string calldata newVersion) external;

@@ -50,4 +50,10 @@ interface IMessageListener {
         Message[] calldata messages,
         Signature calldata sign
     ) external;
+
+    function postOutgoingMessage(
+        bytes32 targetChainHash,
+        address targetContract,
+        bytes memory data
+    ) external;
 }
