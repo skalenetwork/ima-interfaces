@@ -21,46 +21,15 @@
 
 pragma solidity >=0.6.10 <0.9.0;
 
+import { IMessageListener } from "./IMessageListener.sol";
 
-interface IMessageProxy {
 
-    /**
-     * @dev Structure that describes message. Should contain sender of message,
-     * destination contract on schain that will receiver message,
-     * data that contains all needed info about token or ETH.
-     */
-    struct Message {
-        address sender;
-        address destinationContract;
-        bytes data;
-    }
-
-    /**
-     * @dev Structure that contains fields for bls signature.
-     */
-    struct Signature {
-        uint256[2] blsSignature;
-        uint256 hashA;
-        uint256 hashB;
-        uint256 counter;
-    }
-
+interface IMessageProxy is IMessageListener {
     function addConnectedChain(string calldata schainName) external;
-    function postIncomingMessages(
-        string calldata fromSchainName,
-        uint256 startingCounter,
-        Message[] calldata messages,
-        Signature calldata sign
-    ) external;
     function setNewGasLimit(uint256 newGasLimit) external;
     function registerExtraContractForAll(address extraContract) external;
-    function removeExtraContractForAll(address extraContract) external;    
+    function removeExtraContractForAll(address extraContract) external;
     function removeConnectedChain(string memory schainName) external;
-    function postOutgoingMessage(
-        bytes32 targetChainHash,
-        address targetContract,
-        bytes memory data
-    ) external;
     function registerExtraContract(string memory chainName, address extraContract) external;
     function removeExtraContract(string memory schainName, address extraContract) external;
     function setVersion(string calldata newVersion) external;
