@@ -21,6 +21,8 @@
 
 pragma solidity >=0.8.8 <0.9.0;
 
+import {SchainHash} from "./DomainTypes.sol";
+
 
 interface IMessageListener {
     /**
@@ -52,7 +54,7 @@ interface IMessageListener {
     ) external;
 
     function postOutgoingMessage(
-        bytes32 targetChainHash,
+        SchainHash targetChainHash,
         address targetContract,
         bytes memory data
     ) external;
