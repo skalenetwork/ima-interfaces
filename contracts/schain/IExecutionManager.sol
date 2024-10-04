@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 /**
- *   ITokenManagerERC20 - SKALE Interchain Messaging Agent
- *   Copyright (C) 2021-Present SKALE Labs
+ *   IExecutionManager - SKALE Interchain Messaging Agent
+ *   Copyright (C) 2024-Present SKALE Labs
  *   @author Dmytro Stebaiev
  *
  *   SKALE IMA is free software: you can redistribute it and/or modify
@@ -21,21 +21,12 @@
 
 pragma solidity >=0.8.8 <0.9.0;
 
-import "./ITokenContractManager.sol";
+import {IMessageReceiver} from "../IMessageReceiver.sol";
+import {IMessageProxyForSchain} from "./IMessageProxyForSchain.sol";
+import {SchainHash} from "../DomainTypes.sol";
 
-interface ITokenManagerERC20 is ITokenContractManager {
-    function exitToMainERC20(
-        address contractOnMainnet,
-        uint256 amount
-    ) external;
-    function transferToSchainERC20(
-        string calldata targetSchainName,
-        address contractOnMainnet,
-        uint256 amount
-    ) external;
-    function addERC20TokenByOwner(
-        string calldata targetChainName,
-        address erc20OnMainnet,
-        address erc20OnSchain
-    ) external;
+
+interface IExecutionManager is IMessageReceiver {
+    function initialize(IMessageProxyForSchain messageProxyAddress) external;
+    function testSend(SchainHash targetChainHash, string calldata message) external;
 }

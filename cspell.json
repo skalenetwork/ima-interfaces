@@ -4,6 +4,7 @@
     "ignorePaths": [
         "yarn-error.log",
         ".gitignore",
+        ".solhint.json",
         "cspell.json",
         "dictionaries/**/*",
         "cache/**/*",

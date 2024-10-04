@@ -19,7 +19,7 @@
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-pragma solidity >=0.6.10 <0.9.0;
+pragma solidity >=0.8.8 <0.9.0;
 
 import "@skalenetwork/skale-manager-interfaces/IContractManager.sol";
 
@@ -35,17 +35,22 @@ interface ICommunityPool is ITwin {
         ILinker linker,
         IMessageProxyForMainnet messageProxyValue
     ) external;
-    function refundGasByUser(bytes32 schainHash, address payable node, address user, uint gas) external returns (uint);
+    function refundGasByUser(
+        bytes32 schainHash,
+        address payable node,
+        address user,
+        uint256 gas
+    ) external returns (uint256);
     function rechargeUserWallet(string calldata schainName, address user) external payable;
-    function withdrawFunds(string calldata schainName, uint amount) external;
-    function setMinTransactionGas(uint newMinTransactionGas) external;
-    function setMultiplier(uint newMultiplierNumerator, uint newMultiplierDivider) external;
+    function withdrawFunds(string calldata schainName, uint256 amount) external;
+    function setMinTransactionGas(uint256 newMinTransactionGas) external;
+    function setMultiplier(uint256 newMultiplierNumerator, uint256 newMultiplierDivider) external;
     function refundGasBySchainWallet(
         bytes32 schainHash,
         address payable node,
-        uint gas
+        uint256 gas
     ) external returns (bool);
-    function getBalance(address user, string calldata schainName) external view returns (uint);
+    function getBalance(address user, string calldata schainName) external view returns (uint256);
     function checkUserBalance(bytes32 schainHash, address receiver) external view returns (bool);
     function getRecommendedRechargeAmount(bytes32 schainHash, address receiver) external view returns (uint256);
 }

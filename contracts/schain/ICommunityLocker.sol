@@ -19,7 +19,7 @@
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-pragma solidity >=0.6.10 <0.9.0;
+pragma solidity >=0.8.8 <0.9.0;
 
 import "../IMessageReceiver.sol";
 
@@ -35,6 +35,10 @@ interface ICommunityLocker is IMessageReceiver {
         address newCommunityPool
     ) external;
     function checkAllowedToSendMessage(bytes32 chainHash, address receiver) external;
-    function setTimeLimitPerMessage(string memory chainName, uint newTimeLimitPerMessage) external;
-    function setGasPrice(uint gasPrice, uint timestamp, IMessageProxyForSchain.Signature memory signature) external;
+    function setTimeLimitPerMessage(string memory chainName, uint256 newTimeLimitPerMessage) external;
+    function setGasPrice(
+        uint256 gasPrice,
+        uint256 timestamp,
+        IMessageProxyForSchain.Signature memory signature
+    ) external;
 }
