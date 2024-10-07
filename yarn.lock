@@ -909,10 +909,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-5.6.0.tgz#41dd6093d34652cddb5d5bdeee04eafc33826668"
   integrity sha512-TV7t8GKYaJWsn00tFDqBw8+Uqmr8A0fRU1tvTQhyZzGv0sJCGRQL3JGMI3ucuKo3XIZdUP+Lx7/gh2t3lewy7g==
 
-"@skalenetwork/skale-manager-interfaces@^3.2.0-execution-layer.0":
-  version "3.2.0-execution-layer.0"
-  resolved "https://registry.yarnpkg.com/@skalenetwork/skale-manager-interfaces/-/skale-manager-interfaces-3.2.0-execution-layer.0.tgz#4e189a23a6b3128b804317e6a86f17655be0bb3c"
-  integrity sha512-QV/3/QFQEsTMFXZaJzNRXfHtHznf9jq4hsLGUJwTmYPEF6O0WVhDiwfUgwMAah2hgpxxJcdLnWyh3YOA5Kf1Tw==
+"@skalenetwork/skale-manager-interfaces@^3.2.0-develop.0":
+  version "3.2.0-paymaster.2"
+  resolved "https://registry.yarnpkg.com/@skalenetwork/skale-manager-interfaces/-/skale-manager-interfaces-3.2.0-paymaster.2.tgz#6b114041b623a030331e0a7853a2eab136fc2daf"
+  integrity sha512-tmqWNkafjJxIZNVp2EmysvXor5F4G+f5A4qTMWqCZ7yMrCAvGzTETpMiHGjJJCUwSIaaqd62DjDjQi69r+BUkg==
 
 "@solidity-parser/parser@^0.18.0":
   version "0.18.0"

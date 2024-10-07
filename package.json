@@ -25,7 +25,7 @@
     "fullCheck": "yarn lint && yarn cspell && yarn slither"
   },
   "dependencies": {
-    "@skalenetwork/skale-manager-interfaces": "^3.2.0-execution-layer.0"
+    "@skalenetwork/skale-manager-interfaces": "^3.2.0-develop.0"
   },
   "devDependencies": {
     "@types/node": "^22.5.0",
