@@ -24,7 +24,8 @@ pragma solidity >=0.8.19 <0.9.0;
 type SchainHash is bytes32;
 
 using {
-    _schainHashEquals as ==
+    _schainHashEquals as ==,
+    _schainHashNotEquals as !=
 } for SchainHash global;
 
 // Operators are used by the library users
@@ -32,6 +33,10 @@ using {
 
 function _schainHashEquals(SchainHash left, SchainHash right) pure returns (bool result) {
     return SchainHash.unwrap(left) == SchainHash.unwrap(right);
+}
+
+function _schainHashNotEquals(SchainHash left, SchainHash right) pure returns (bool result) {
+    return SchainHash.unwrap(left) != SchainHash.unwrap(right);
 }
 
 // slither-disable-end dead-code
