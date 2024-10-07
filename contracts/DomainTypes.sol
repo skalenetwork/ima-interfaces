@@ -18,7 +18,20 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
-pragma solidity >=0.8.8 <0.9.0;
+pragma solidity >=0.8.19 <0.9.0;
 
 
 type SchainHash is bytes32;
+
+using {
+    _schainHashEquals as ==
+} for SchainHash global;
+
+// Operators are used by the library users
+// slither-disable-start dead-code
+
+function _schainHashEquals(SchainHash left, SchainHash right) pure returns (bool result) {
+    return SchainHash.unwrap(left) == SchainHash.unwrap(right);
+}
+
+// slither-disable-end dead-code
