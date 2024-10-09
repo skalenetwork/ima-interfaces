@@ -36,7 +36,7 @@ interface ICommunityPool is ITwin {
         IMessageProxyForMainnet messageProxyValue
     ) external;
     function refundGasByUser(
-        bytes32 schainHash,
+        SchainHash schainHash,
         address payable node,
         address user,
         uint256 gas
@@ -46,11 +46,11 @@ interface ICommunityPool is ITwin {
     function setMinTransactionGas(uint256 newMinTransactionGas) external;
     function setMultiplier(uint256 newMultiplierNumerator, uint256 newMultiplierDivider) external;
     function refundGasBySchainWallet(
-        bytes32 schainHash,
+        SchainHash schainHash,
         address payable node,
         uint256 gas
     ) external returns (bool);
     function getBalance(address user, string calldata schainName) external view returns (uint256);
-    function checkUserBalance(bytes32 schainHash, address receiver) external view returns (bool);
-    function getRecommendedRechargeAmount(bytes32 schainHash, address receiver) external view returns (uint256);
+    function checkUserBalance(SchainHash schainHash, address receiver) external view returns (bool);
+    function getRecommendedRechargeAmount(SchainHash schainHash, address receiver) external view returns (uint256);
 }
