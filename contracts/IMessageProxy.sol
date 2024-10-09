@@ -21,7 +21,7 @@
 
 pragma solidity >=0.8.19 <0.9.0;
 
-import { IMessageListener } from "./IMessageListener.sol";
+import { IMessageListener, SchainHash } from "./IMessageListener.sol";
 
 
 interface IMessageProxy is IMessageListener {
@@ -34,7 +34,7 @@ interface IMessageProxy is IMessageListener {
     function removeExtraContract(string memory schainName, address extraContract) external;
     function setVersion(string calldata newVersion) external;
     function isContractRegistered(
-        bytes32 schainHash,
+        SchainHash schainHash,
         address contractAddress
     ) external view returns (bool);
     function getContractRegisteredLength(bytes32 schainHash) external view returns (uint256);
