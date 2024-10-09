@@ -26,7 +26,7 @@ import "./IKeyStorage.sol";
 
 interface IMessageProxyForSchain is IMessageProxy {
     struct OutgoingMessageData {
-        bytes32 dstChainHash; // destination chain
+        SchainHash dstChainHash; // destination chain
         uint256 msgCounter; // message counter
         address srcContract; // origin
         address dstContract; // receiver
