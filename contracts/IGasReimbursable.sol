@@ -26,7 +26,7 @@ import "./IMessageReceiver.sol";
 
 interface IGasReimbursable is IMessageReceiver {
     function gasPayer(
-        bytes32 schainHash,
+        SchainHash schainHash,
         address sender,
         bytes calldata data
     )
