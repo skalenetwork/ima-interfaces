@@ -29,5 +29,5 @@ import {SchainHash} from "../DomainTypes.sol";
 interface ISkaleManagerClient {
     function initialize(IContractManager newContractManagerOfSkaleManager) external;
     function isSchainOwner(address sender, SchainHash schainHash) external view returns (bool);
-    function isAgentAuthorized(bytes32 schainHash, address sender) external view returns (bool);
+    function isAgentAuthorized(SchainHash schainHash, address sender) external view returns (bool);
 }

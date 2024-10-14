@@ -33,11 +33,11 @@ interface IMessageProxyForMainnet is IMessageProxy {
     function addReimbursedContract(string memory schainName, address reimbursedContract) external;
     function removeReimbursedContract(string memory schainName, address reimbursedContract) external;
     function messageInProgress() external view returns (bool);
-    function isPaused(bytes32 schainHash) external view returns (bool);
-    function isReimbursedContract(bytes32 schainHash, address contractAddress) external view returns (bool);
-    function getReimbursedContractsLength(bytes32 schainHash) external view returns (uint256);
+    function isPaused(SchainHash schainHash) external view returns (bool);
+    function isReimbursedContract(SchainHash schainHash, address contractAddress) external view returns (bool);
+    function getReimbursedContractsLength(SchainHash schainHash) external view returns (uint256);
     function getReimbursedContractsRange(
-        bytes32 schainHash,
+        SchainHash schainHash,
         uint256 from,
         uint256 to
     )
