@@ -37,9 +37,9 @@ interface IMessageProxy is IMessageListener {
         SchainHash schainHash,
         address contractAddress
     ) external view returns (bool);
-    function getContractRegisteredLength(bytes32 schainHash) external view returns (uint256);
+    function getContractRegisteredLength(SchainHash schainHash) external view returns (uint256);
     function getContractRegisteredRange(
-        bytes32 schainHash,
+        SchainHash schainHash,
         uint256 from,
         uint256 to
     )
