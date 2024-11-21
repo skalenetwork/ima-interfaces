@@ -28,5 +28,9 @@ import {SchainHash} from "../DomainTypes.sol";
 
 interface IExecutionManager is IMessageReceiver {
     function initialize(IMessageProxyForSchain messageProxyAddress) external;
+    function setRemoteExecutionManager(
+        SchainHash schainHash,
+        address executionManagerAddress
+    ) external;
     function testSend(SchainHash targetChainHash, string calldata message) external;
 }
