@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 /**
- *   IExecutionManager - SKALE Interchain Messaging Agent
+ *   IActionExecutor - SKALE Interchain Messaging Agent
  *   Copyright (C) 2024-Present SKALE Labs
  *   @author Dmytro Stebaiev
  *
@@ -21,16 +21,16 @@
 
 pragma solidity >=0.8.19 <0.9.0;
 
-import {IMessageReceiver} from "../IMessageReceiver.sol";
-import {IMessageProxyForSchain} from "./IMessageProxyForSchain.sol";
-import {SchainHash} from "../DomainTypes.sol";
+struct TokenInfo {
+    address token;
+    uint256 number;
+}
 
-
-interface IExecutionManager is IMessageReceiver {
-    function initialize(IMessageProxyForSchain messageProxyAddress) external;
-    function setRemoteExecutionManager(
-        SchainHash schainHash,
-        address executionManagerAddress
-    ) external;
-    function testSend(SchainHash targetChainHash, string calldata message) external;
+interface IActionExecutor {
+    function execute(
+        TokenInfo[] memory inputTokens,
+        bytes memory arguments
+    )
+        external
+        returns (TokenInfo[] memory outputTokens);
 }
