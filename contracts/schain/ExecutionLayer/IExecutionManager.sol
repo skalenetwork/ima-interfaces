@@ -22,12 +22,12 @@
 pragma solidity >=0.8.19 <0.9.0;
 
 import {IMessageReceiver} from "../../IMessageReceiver.sol";
-import {IMessageProxyForSchain} from "../IMessageProxyForSchain.sol";
+import {ITokenManagerERC20} from "../TokenManagers/ITokenManagerERC20.sol";
 import {SchainHash} from "../../DomainTypes.sol";
 
 
 interface IExecutionManager is IMessageReceiver {
-    function initialize(IMessageProxyForSchain messageProxyAddress) external;
+    function initialize(ITokenManagerERC20 erc20TokenManagerAddress) external;
     function setRemoteExecutionManager(
         SchainHash schainHash,
         address executionManagerAddress
