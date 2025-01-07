@@ -19,14 +19,14 @@
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-pragma solidity >=0.6.10 <0.9.0;
+pragma solidity >=0.8.19 <0.9.0;
 
 import "./IMessageReceiver.sol";
 
 
 interface IGasReimbursable is IMessageReceiver {
     function gasPayer(
-        bytes32 schainHash,
+        SchainHash schainHash,
         address sender,
         bytes calldata data
     )

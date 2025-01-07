@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 /**
- *   IERC721ReferenceMintAndMetadataSchain.sol - SKALE Interchain Messaging Agent
- *   Copyright (C) 2021-Present SKALE Labs
+ *   IExecutionManager - SKALE Interchain Messaging Agent
+ *   Copyright (C) 2024-Present SKALE Labs
  *   @author Dmytro Stebaiev
  *
  *   SKALE IMA is free software: you can redistribute it and/or modify
@@ -21,15 +21,16 @@
 
 pragma solidity >=0.8.19 <0.9.0;
 
+import {IMessageReceiver} from "../../IMessageReceiver.sol";
+import {ITokenManagerERC20} from "../TokenManagers/ITokenManagerERC20.sol";
+import {SchainHash} from "../../DomainTypes.sol";
 
-interface IERC721ReferenceMintAndMetadataSchain {
-    function sendTokenToMainnet(address receiver, uint256 tokenId) external;
-    function encodeParams(
-        address receiver,
-        uint256 tokenId,
-        string memory tokenURI
-    )
-        external
-        pure
-        returns (bytes memory data);
+
+interface IExecutionManager is IMessageReceiver {
+    function initialize(ITokenManagerERC20 erc20TokenManagerAddress) external;
+    function setRemoteExecutionManager(
+        SchainHash schainHash,
+        address executionManagerAddress
+    ) external;
+    function testSend(SchainHash targetChainHash, string calldata message) external;
 }

@@ -19,7 +19,9 @@
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-pragma solidity >=0.6.10 <0.9.0;
+pragma solidity >=0.8.19 <0.9.0;
+
+import {SchainHash} from "./DomainTypes.sol";
 
 
 interface IMessageListener {
@@ -52,7 +54,7 @@ interface IMessageListener {
     ) external;
 
     function postOutgoingMessage(
-        bytes32 targetChainHash,
+        SchainHash targetChainHash,
         address targetContract,
         bytes memory data
     ) external;

@@ -19,7 +19,7 @@
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-pragma solidity >=0.6.10 <0.9.0;
+pragma solidity >=0.8.19 <0.9.0;
 
 import "./ITwin.sol";
 
@@ -30,7 +30,7 @@ interface ILinker is ITwin {
     function connectSchain(string calldata schainName, address[] calldata schainContracts) external;
     function kill(string calldata schainName) external;
     function disconnectSchain(string calldata schainName) external;
-    function isNotKilled(bytes32 schainHash) external view returns (bool);
+    function isNotKilled(SchainHash schainHash) external view returns (bool);
     function hasMainnetContract(address mainnetContract) external view returns (bool);
     function hasSchain(string calldata schainName) external view returns (bool connected);
 }

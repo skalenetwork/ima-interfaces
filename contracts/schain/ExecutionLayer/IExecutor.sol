@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 /**
- *   IERC721ReferenceMintAndMetadataSchain.sol - SKALE Interchain Messaging Agent
- *   Copyright (C) 2021-Present SKALE Labs
+ *   IExecutor - SKALE Interchain Messaging Agent
+ *   Copyright (C) 2024-Present SKALE Labs
  *   @author Dmytro Stebaiev
  *
  *   SKALE IMA is free software: you can redistribute it and/or modify
@@ -19,17 +19,18 @@
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+// cspell::words func-name-mixedcase
+
 pragma solidity >=0.8.19 <0.9.0;
 
+import {IActionExecutor} from "./IActionExecutor.sol";
 
-interface IERC721ReferenceMintAndMetadataSchain {
-    function sendTokenToMainnet(address receiver, uint256 tokenId) external;
-    function encodeParams(
-        address receiver,
-        uint256 tokenId,
-        string memory tokenURI
-    )
-        external
-        pure
-        returns (bytes memory data);
+type ExecutorId is bytes32;
+
+interface IExecutor is IActionExecutor {
+    // ID will be public constant variable but not function
+    // slither-disable-start naming-convention
+    // solhint-disable-next-line func-name-mixedcase
+    function ID() external pure returns (ExecutorId executorId);
+    // slither-disable-end naming-convention
 }
