@@ -22,7 +22,7 @@
 pragma solidity >=0.8.19 <0.9.0;
 
 struct TokenInfo {
-    uint256 number;
+    uint256 value;
     address token;
     address origin;
 }
