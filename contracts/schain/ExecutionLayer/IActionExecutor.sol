@@ -22,8 +22,9 @@
 pragma solidity >=0.8.19 <0.9.0;
 
 struct TokenInfo {
-    address token;
     uint256 number;
+    address token;
+    address origin;
 }
 
 interface IActionExecutor {
