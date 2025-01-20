@@ -24,6 +24,7 @@ pragma solidity >=0.8.19 <0.9.0;
 import {IMessageReceiver} from "../../IMessageReceiver.sol";
 import {ITokenManagerERC20} from "../TokenManagers/ITokenManagerERC20.sol";
 import {SchainHash} from "../../DomainTypes.sol";
+import {TokenInfo} from "./IActionExecutor.sol";
 
 
 interface IExecutionManager is IMessageReceiver {
@@ -33,4 +34,5 @@ interface IExecutionManager is IMessageReceiver {
         address executionManagerAddress
     ) external;
     function testSend(SchainHash targetChainHash, string calldata message) external;
+    function getTokenAddress(TokenInfo memory tokenInfo) external view returns (address token);
 }
