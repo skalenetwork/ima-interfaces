@@ -33,6 +33,5 @@ interface IExecutionManager is IMessageReceiver {
         SchainHash schainHash,
         address executionManagerAddress
     ) external;
-    function testSend(SchainHash targetChainHash, string calldata message) external;
     function getTokenAddress(TokenInfo memory tokenInfo) external view returns (address token);
 }
