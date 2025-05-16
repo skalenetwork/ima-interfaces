@@ -21,10 +21,14 @@
 
 pragma solidity >=0.8.19 <0.9.0;
 
+import {SchainHash} from "../../DomainTypes.sol";
+
+
 struct TokenInfo {
     uint256 value;
     address token;
-    address origin;
+    SchainHash schain;
+    address dstToken;
 }
 
 interface IActionExecutor {
