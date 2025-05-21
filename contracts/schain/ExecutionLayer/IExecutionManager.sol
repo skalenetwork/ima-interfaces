@@ -28,7 +28,7 @@ import {TokenInfo} from "./IActionExecutor.sol";
 
 
 interface IExecutionManager is IMessageReceiver {
-    function initialize(ITokenManagerERC20 erc20TokenManagerAddress) external;
+    function initialize(ITokenManagerERC20 erc20TokenManagerAddress, address locker) external;
     function setRemoteExecutionManager(
         SchainHash schainHash,
         address executionManagerAddress
