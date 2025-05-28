@@ -60,12 +60,12 @@ interface IExecutionManager is IMessageReceiver {
     function getMetaActionsWithLockedTokens() external view returns (MetaActionId[] memory ids);
 
     // Pure
-    function createMetaAction(
+    function createSimpleMetaAction(
         SchainHash targetChain,
         ProtocolTypes.Action[] memory actions
     ) external pure returns (ProtocolTypes.MetaAction memory metaAction);
 
-    function createMetaAction(
+    function createChainedMetaAction(
         SchainHash targetChain,
         ProtocolTypes.Action[] memory actions,
         ProtocolTypes.MetaAction memory nextMetaAction,
