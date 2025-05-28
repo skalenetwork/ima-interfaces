@@ -39,8 +39,6 @@ interface ITokenLocker {
 
     function initialize() external;
 
-    function getMetaActionsWithLockedTokens() external view returns (MetaActionId[] memory metaActions);
-
     function lock(
         ProtocolTypes.TokenInfo[] calldata tokens,
         MetaActionId metaAction,
@@ -50,4 +48,6 @@ interface ITokenLocker {
     function unlock(
         MetaActionId metaAction
     ) external;
+
+    function getMetaActionsWithLockedTokens() external view returns (MetaActionId[] memory metaActions);
 }
