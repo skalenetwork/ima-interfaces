@@ -26,6 +26,7 @@ import {ITokenManagerERC20} from "../TokenManagers/ITokenManagerERC20.sol";
 import {SchainHash} from "../../DomainTypes.sol";
 import {ProtocolTypes, MetaActionId} from "./ProtocolTypes.sol";
 import {ExecutorId, IExecutor} from "./IExecutor.sol";
+import {ITokenLocker} from "./ITokenLocker.sol";
 
 
 interface IExecutionManager is IMessageReceiver {
@@ -34,7 +35,7 @@ interface IExecutionManager is IMessageReceiver {
     event MetaActionFailed(MetaActionId indexed id, string reason);
     event MetaActionConfirmationFailed(MetaActionId indexed id, string reason);
 
-    function initialize(ITokenManagerERC20 erc20TokenManagerAddress, address locker) external;
+    function initialize(ITokenManagerERC20 erc20TokenManagerAddress, ITokenLocker locker) external;
 
     // Execute
     function execute(
