@@ -23,14 +23,23 @@
 
 pragma solidity >=0.8.19 <0.9.0;
 
-import {IActionExecutor} from "./IActionExecutor.sol";
+import {ProtocolTypes} from "./ProtocolTypes.sol";
 
 type ExecutorId is bytes32;
 
-interface IExecutor is IActionExecutor {
+interface IExecutor {
+
+    function execute(
+        ProtocolTypes.TokenInfo[] memory inputTokens,
+        bytes memory arguments
+    )
+        external
+        returns (ProtocolTypes.TokenInfo[] memory outputTokens);
+
     // ID will be public constant variable but not function
     // slither-disable-start naming-convention
     // solhint-disable-next-line func-name-mixedcase
     function ID() external pure returns (ExecutorId executorId);
     // slither-disable-end naming-convention
+
 }

@@ -24,14 +24,52 @@ pragma solidity >=0.8.19 <0.9.0;
 import {IMessageReceiver} from "../../IMessageReceiver.sol";
 import {ITokenManagerERC20} from "../TokenManagers/ITokenManagerERC20.sol";
 import {SchainHash} from "../../DomainTypes.sol";
-import {TokenInfo} from "./IActionExecutor.sol";
+import {ProtocolTypes, MetaActionId} from "./ProtocolTypes.sol";
+import {ExecutorId, IExecutor} from "./IExecutor.sol";
 
 
 interface IExecutionManager is IMessageReceiver {
+
+    event MetaActionCreated(MetaActionId id);
+    event MetaActionFailed(MetaActionId indexed id, string reason);
+    event MetaActionConfirmationFailed(MetaActionId indexed id, string reason);
+
     function initialize(ITokenManagerERC20 erc20TokenManagerAddress, address locker) external;
+
+    // Execute
+    function execute(
+        ProtocolTypes.MetaAction calldata metaAction,
+        ProtocolTypes.TokenInfo[] calldata tokens,
+        ProtocolTypes.Action[] memory postActions
+    ) external;
+
+    // Setters
     function setRemoteExecutionManager(
         SchainHash schainHash,
         address executionManagerAddress
     ) external;
-    function getTokenAddress(TokenInfo memory tokenInfo) external view returns (address token);
+    function setExecutor(
+        ExecutorId id,
+        IExecutor executorAddress
+    ) external;
+
+    // View
+    function getMetaActionStatus(MetaActionId id) external view returns (ProtocolTypes.MetaActionStatus status);
+    function getExecutor(ExecutorId id) external view returns (IExecutor executor);
+    function getMetaActionsWithLockedTokens() external view returns (MetaActionId[] memory ids);
+
+    // Pure
+    function createMetaAction(
+        SchainHash targetChain,
+        ProtocolTypes.Action[] memory actions
+    ) external pure returns (ProtocolTypes.MetaAction memory metaAction);
+
+    function createMetaAction(
+        SchainHash targetChain,
+        ProtocolTypes.Action[] memory actions,
+        ProtocolTypes.MetaAction memory nextMetaAction,
+        ProtocolTypes.Action[] memory postActions
+    ) external pure returns (ProtocolTypes.MetaAction memory metaAction);
+
+    function getTokenAddress(ProtocolTypes.TokenInfo memory tokenInfo) external pure returns (address token);
 }
