@@ -51,4 +51,8 @@ interface ITokenLocker {
     ) external;
 
     function getMetaActionsWithLockedTokens() external view returns (MetaActionId[] memory metaActions);
+
+    function getLockedTokensForMetaAction(
+        MetaActionId id
+    ) external view returns (ProtocolTypes.TokenInfo[] memory tokens);
 }
