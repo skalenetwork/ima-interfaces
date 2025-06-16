@@ -30,9 +30,9 @@ interface ITokenManagerSFuelSource {
 
     receive() external payable;
 
-    function setEuropaChainName(string memory europaChainName) external;
+    function setHubChainName(string memory hubChainName) external;
 
-    function sendSFuelToEuropa(address to, uint256 amount) external payable;
+    function sendSFuelToHub(address to, uint256 amount) external payable;
 
     function postMessage(
         SchainHash fromChainHash,
