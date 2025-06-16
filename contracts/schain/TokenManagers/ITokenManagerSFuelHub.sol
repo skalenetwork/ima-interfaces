@@ -19,14 +19,16 @@
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-pragma solidity >=0.6.10 <0.9.0;
+pragma solidity >=0.8.19 <0.9.0;
 
 import "../tokens/IEthErc20.sol";
+import {SchainHash} from "../../DomainTypes.sol";
+
 
 interface ITokenManagerSFuelHub {
-    event SFuelTokenRegistered(bytes32 indexed sourceChainHash, address indexed tokenAddress);
-    event SFuelReceived(bytes32 indexed fromChain, address indexed receiver, uint256 amount);
-    event SFuelSentBack(bytes32 indexed toChain, address indexed sender, uint256 amount);
+    event SFuelTokenRegistered(SchainHash indexed sourceChainHash, address indexed tokenAddress);
+    event SFuelReceived(SchainHash indexed fromChain, address indexed receiver, uint256 amount);
+    event SFuelSentBack(SchainHash indexed toChain, address indexed sender, uint256 amount);
 
     function registerSFuelToken(
         string memory sourceChainName,
