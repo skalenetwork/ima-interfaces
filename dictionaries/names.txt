@@ -2,3 +2,5 @@ artem
 dmytro
 payvin
 stebaiev
+vadim
+yavorsky
