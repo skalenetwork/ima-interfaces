@@ -26,5 +26,4 @@ interface IEthErc20 {
     function mint(address account, uint256 amount) external;
     function forceBurn(address account, uint256 amount) external;
     function initialize(address tokenManagerEthAddress) external;
-    function balanceOf(address account) external view returns (uint256);
 }

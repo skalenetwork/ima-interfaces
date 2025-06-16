@@ -41,11 +41,5 @@ interface ITokenManagerSFuelHub {
         uint256 amount
     ) external;
 
-    function postMessage(
-        SchainHash fromChainHash,
-        address sender,
-        bytes calldata data
-    ) external;
-
     function getSFuelToken(string memory sourceChainName) external view returns (address);
 }

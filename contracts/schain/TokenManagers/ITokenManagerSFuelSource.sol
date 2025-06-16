@@ -34,10 +34,4 @@ interface ITokenManagerSFuelSource {
 
     function sendSFuelToHub(address to, uint256 amount) external payable;
 
-    function postMessage(
-        SchainHash fromChainHash,
-        address sender,
-        bytes calldata data
-    ) external;
-
 }
