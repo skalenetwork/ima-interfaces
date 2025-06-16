@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 /**
- *   ITokenManagerERC721 - SKALE Interchain Messaging Agent
+ *   ITokenManagerSFuelSource - SKALE Interchain Messaging Agent
  *   Copyright (C) 2025-Present SKALE Labs
  *   @author Vadim Yavorsky
  *
@@ -27,16 +27,14 @@ interface ITokenManagerSFuelSource {
 
     receive() external payable;
 
-    function setEuropaChainHash(string memory europaChainName) external;
+    function setEuropaChainName(string memory europaChainName) external;
 
     function sendSFuelToEuropa(address to, uint256 amount) external payable;
 
     function postMessage(
-        bytes32 fromChainHash,
+        SchainHash fromChainHash,
         address sender,
         bytes calldata data
     ) external;
-
-    function europaChainHash() external view returns (bytes32);
 
 }
