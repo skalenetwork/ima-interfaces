@@ -25,6 +25,8 @@ interface ITokenManagerSFuelSource {
     event SFuelSentToHub(address indexed sender, uint256 amount);
     event SFuelReceivedFromHub(address indexed receiver, uint256 amount);
 
+    receive() external payable;
+
     function setEuropaChainHash(string memory europaChainName) external;
 
     function sendSFuelToEuropa(address to, uint256 amount) external payable;
@@ -37,5 +39,4 @@ interface ITokenManagerSFuelSource {
 
     function europaChainHash() external view returns (bytes32);
 
-    receive() external payable;
 }
