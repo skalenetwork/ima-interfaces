@@ -23,6 +23,10 @@ pragma solidity >=0.8.19 <0.9.0;
 
 import "../tokens/IEthErc20.sol";
 import {SchainHash} from "../../DomainTypes.sol";
+import "../ICommunityLocker.sol";
+import "../IMessageProxyForSchain.sol";
+import "../ITokenManager.sol";
+import "../ITokenManagerLinker.sol";
 
 
 interface ITokenManagerSFuelHub {
@@ -42,4 +46,10 @@ interface ITokenManagerSFuelHub {
     ) external;
 
     function getSFuelToken(string memory sourceChainName) external view returns (address);
+    function initialize(
+        string memory newChainName,
+        IMessageProxyForSchain newMessageProxy,
+        ITokenManagerLinker newIMALinker,
+        ICommunityLocker newCommunityLocker
+    ) external;
 }

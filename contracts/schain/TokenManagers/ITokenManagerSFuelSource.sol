@@ -22,6 +22,10 @@
 pragma solidity >=0.8.19 <0.9.0;
 
 import {SchainHash} from "../../DomainTypes.sol";
+import "../ICommunityLocker.sol";
+import "../IMessageProxyForSchain.sol";
+import "../ITokenManager.sol";
+import "../ITokenManagerLinker.sol";
 
 
 interface ITokenManagerSFuelSource {
@@ -33,5 +37,11 @@ interface ITokenManagerSFuelSource {
     function setHubChainName(string memory hubChainName) external;
 
     function sendSFuelToHub(address to, uint256 amount) external payable;
+    function initialize(
+        string memory newChainName,
+        IMessageProxyForSchain newMessageProxy,
+        ITokenManagerLinker newIMALinker,
+        ICommunityLocker newCommunityLocker
+    ) external;
 
 }
