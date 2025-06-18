@@ -40,7 +40,7 @@ interface ITokenManagerSFuelHub {
     ) external;
 
     function sendSFuelBackToSource(
-        address sFuelTokenAddress,
+        IEthErc20 sFuelTokenAddress,
         address to,
         uint256 amount
     ) external;
