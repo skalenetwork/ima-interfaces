@@ -36,7 +36,7 @@ interface ITokenManagerSFuelSource {
 
     function setHubChainName(string memory hubChainName) external;
 
-    function sendSFuelToHub(address to, uint256 amount) external payable;
+    function sendSFuelToHub(address to) external payable;
     function initialize(
         string memory newChainName,
         IMessageProxyForSchain newMessageProxy,
