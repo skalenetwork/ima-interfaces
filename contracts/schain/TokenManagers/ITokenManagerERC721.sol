@@ -35,4 +35,16 @@ interface ITokenManagerERC721 is ITokenContractManager {
         address erc721OnMainnet,
         address erc721OnSchain
     ) external;
+    function transferToSchainHashERC721Direct(
+        SchainHash targetSchainHash,
+        address contractOnMainnet,
+        uint256 tokenId,
+        address receiver
+    ) external;
+    function transferToSchainERC721Direct(
+        string calldata targetSchainName,
+        address contractOnMainnet,
+        uint256 tokenId,
+        address receiver
+    ) external;
 }
