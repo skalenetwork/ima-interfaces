@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/node": "^22.5.0",
     "cspell": "^8.0.0",
-    "hardhat": "^2.3.0",
+    "hardhat": "^3.0.6",
     "solhint": "^5.0.1",
     "ts-node": "^10.0.0",
     "typescript": "^5.1.6"
