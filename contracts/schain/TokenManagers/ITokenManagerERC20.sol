@@ -19,7 +19,7 @@
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-pragma solidity >=0.6.10 <0.9.0;
+pragma solidity >=0.8.19 <0.9.0;
 
 import "./ITokenContractManager.sol";
 
@@ -32,6 +32,18 @@ interface ITokenManagerERC20 is ITokenContractManager {
         string calldata targetSchainName,
         address contractOnMainnet,
         uint256 amount
+    ) external;
+    function transferToSchainERC20Direct(
+        string calldata targetSchainName,
+        address contractOnMainnet,
+        uint256 amount,
+        address to
+    ) external;
+    function transferToSchainHashERC20Direct(
+        SchainHash targetSchainHash,
+        address contractOnMainnet,
+        uint256 amount,
+        address receiver
     ) external;
     function addERC20TokenByOwner(
         string calldata targetChainName,

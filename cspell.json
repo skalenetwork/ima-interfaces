@@ -4,12 +4,14 @@
     "ignorePaths": [
         "yarn-error.log",
         ".gitignore",
+        ".solhint.json",
         "cspell.json",
         "dictionaries/**/*",
         "cache/**/*",
         "artifacts/**/*",
         "typechain/**/*",
-        "coverage/**/*"        
+        "coverage/**/*",
+        "venv/**/*"
     ],
     "dictionaries": ["domain-terms", "libraries", "names", "skale-terms", "solidity"],
     "dictionaryDefinitions": [

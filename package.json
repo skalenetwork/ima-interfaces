@@ -1,6 +1,6 @@
 {
   "name": "@skalenetwork/ima-interfaces",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Definitions of interfaces needed to integrate with IMA smart contracts",
   "main": "index.js",
   "repository": "git@github.com:skalenetwork/ima-interfaces.git",
@@ -25,14 +25,14 @@
     "fullCheck": "yarn lint && yarn cspell && yarn slither"
   },
   "dependencies": {
-    "@skalenetwork/skale-manager-interfaces": "^0.1.2"
+    "@skalenetwork/skale-manager-interfaces": "^3.2.0-develop.0"
   },
   "devDependencies": {
-    "@types/node": "^16.11.6",
-    "cspell": "^5.12.3",
+    "@types/node": "^22.5.0",
+    "cspell": "^8.0.0",
     "hardhat": "^2.3.0",
-    "solhint": "^3.3.6",
+    "solhint": "^5.0.1",
     "ts-node": "^10.0.0",
-    "typescript": "^4.3.2"
+    "typescript": "^5.1.6"
   }
 }

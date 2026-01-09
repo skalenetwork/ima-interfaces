@@ -19,7 +19,7 @@
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-pragma solidity >=0.6.10 <0.9.0;
+pragma solidity >=0.8.19 <0.9.0;
 
 import "./ISkaleManagerClient.sol";
 
@@ -27,5 +27,5 @@ interface ITwin is ISkaleManagerClient {
     function addSchainContract(string calldata schainName, address contractReceiver) external;
     function removeSchainContract(string calldata schainName) external;
     function hasSchainContract(string calldata schainName) external view returns (bool);
-    function getSchainContract(bytes32 schainHash) external view returns (address);
+    function getSchainContract(SchainHash schainHash) external view returns (address);
 }

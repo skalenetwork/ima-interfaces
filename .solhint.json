@@ -1,7 +1,9 @@
 {
   "extends": "solhint:all",
   "rules": {
-    "compiler-version": ["error","^0.6.10"],
+    "foundry-test-functions": "off",
+
+    "compiler-version": ["error","^0.8.8"],
     "state-visibility": "error",
     "no-empty-blocks": "error",
     "check-send-result": "error",

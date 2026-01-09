@@ -19,15 +19,14 @@
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-pragma solidity >=0.6.10 <0.9.0;
+pragma solidity >=0.8.19 <0.9.0;
 
 import "../IMessageProxy.sol";
 import "./IKeyStorage.sol";
-import "./ITokenManagerLinker.sol";
 
 interface IMessageProxyForSchain is IMessageProxy {
     struct OutgoingMessageData {
-        bytes32 dstChainHash; // destination chain
+        SchainHash dstChainHash; // destination chain
         uint256 msgCounter; // message counter
         address srcContract; // origin
         address dstContract; // receiver

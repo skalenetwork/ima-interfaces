@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 /**
- *   IERC721ReferenceMintAndMetadataSchain.sol - SKALE Interchain Messaging Agent
- *   Copyright (C) 2021-Present SKALE Labs
+ *   DomainTypes.sol - SKALE Interchain Messaging Agent
+ *   Copyright (C) 2024-Present SKALE Labs
  *   @author Dmytro Stebaiev
  *
  *   SKALE IMA is free software: you can redistribute it and/or modify
@@ -18,18 +18,25 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with SKALE IMA.  If not, see <https://www.gnu.org/licenses/>.
  */
-
 pragma solidity >=0.8.19 <0.9.0;
 
 
-interface IERC721ReferenceMintAndMetadataSchain {
-    function sendTokenToMainnet(address receiver, uint256 tokenId) external;
-    function encodeParams(
-        address receiver,
-        uint256 tokenId,
-        string memory tokenURI
-    )
-        external
-        pure
-        returns (bytes memory data);
+type SchainHash is bytes32;
+
+using {
+    _schainHashEquals as ==,
+    _schainHashNotEquals as !=
+} for SchainHash global;
+
+// Operators are used by the library users
+// slither-disable-start dead-code
+
+function _schainHashEquals(SchainHash left, SchainHash right) pure returns (bool result) {
+    return SchainHash.unwrap(left) == SchainHash.unwrap(right);
 }
+
+function _schainHashNotEquals(SchainHash left, SchainHash right) pure returns (bool result) {
+    return SchainHash.unwrap(left) != SchainHash.unwrap(right);
+}
+
+// slither-disable-end dead-code
