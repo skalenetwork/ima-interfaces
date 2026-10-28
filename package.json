@@ -12,6 +12,7 @@
     "ima"
   ],
   "files": [
+    "*.sol",
     "**/*.sol"
   ],
   "scripts": {
@@ -34,5 +35,6 @@
     "solhint": "^5.0.1",
     "ts-node": "^10.0.0",
     "typescript": "^5.1.6"
-  }
+  },
+  "packageManager": "yarn@4.18.1"
 }
